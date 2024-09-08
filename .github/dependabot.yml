@@ -7,9 +7,13 @@ updates:
     groups:
       minor-and-patch:
         update-types:
-          - "minor"
-          - "patch"
+          - 'minor'
+          - 'patch'
     ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-major"]
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
     open-pull-requests-limit: 20
+  - package-ecosystem: 'github-actions'
+    directory: '/.github/workflows'
+    schedule:
+      interval: 'weekly'
