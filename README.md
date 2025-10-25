@@ -13,8 +13,8 @@ A modern web application built with Remix v2, React 18, and TypeScript.
 
 ## Prerequisites
 
-- **Node.js** >= 20.0.0
-- **pnpm** >= 9.0.0
+- **Node.js** >= 22.0.0
+- **pnpm** >= 10.0.0
 
 ## Development
 
@@ -101,12 +101,13 @@ You can deploy to any Node.js hosting platform:
 - [AWS](https://aws.amazon.com)
 - [DigitalOcean](https://www.digitalocean.com)
 
-Make sure your hosting platform supports Node.js >= 20.0.0.
+Make sure your hosting platform supports Node.js >= 22.0.0.
 
 ## Code Style
 
 This project uses:
 - **Prettier** for code formatting (no semicolons, single quotes, trailing commas)
+- **ESLint** for code quality and consistency
 - **TypeScript** in strict mode
 - **Import alias**: `~/` for app directory imports
 
