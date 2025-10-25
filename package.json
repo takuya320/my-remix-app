@@ -38,9 +38,9 @@
     "vite": "^5.4.21",
     "vite-tsconfig-paths": "^4.2.1"
   },
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@10.19.0",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.0.0"
   },
   "prettier": {
     "semi": false,
