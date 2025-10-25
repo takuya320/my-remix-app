@@ -204,7 +204,7 @@ export default function TechStack() {
             <div>
               <h3 className="text-lg font-semibold mb-2">Node.js</h3>
               <p className="text-gray-700 text-sm">
-                ランタイム環境。バージョン20.0.0以上を使用。最新のJavaScript機能をサポート。
+                ランタイム環境。バージョン22.0.0以上を使用。最新のJavaScript機能をサポート。
               </p>
             </div>
           </div>
