@@ -105,7 +105,9 @@ export default function Index() {
                   3
                 </span>
                 <div>
-                  <h3 className="font-semibold text-lg mb-1">優れた開発者体験</h3>
+                  <h3 className="font-semibold text-lg mb-1">
+                    優れた開発者体験
+                  </h3>
                   <p className="text-gray-700">
                     ホットリロード、TypeScriptサポート、明確なエラーメッセージで開発が快適。
                   </p>

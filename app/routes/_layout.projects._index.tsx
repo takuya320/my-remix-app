@@ -11,7 +11,12 @@ const projects = [
       'Remixを使用したモダンなECサイト。商品一覧、カート機能、決済統合を実装。',
     image: '🛒',
     techStack: ['Remix', 'React', 'TypeScript', 'Tailwind CSS', 'Stripe'],
-    features: ['商品管理', 'ショッピングカート', 'オンライン決済', 'レスポンシブデザイン'],
+    features: [
+      '商品管理',
+      'ショッピングカート',
+      'オンライン決済',
+      'レスポンシブデザイン',
+    ],
     status: '完成',
   },
   {
@@ -42,10 +47,16 @@ const projects = [
   {
     id: 4,
     name: 'ポートフォリオサイト',
-    description: '開発者向けポートフォリオテンプレート。プロジェクト紹介、スキル表示。',
+    description:
+      '開発者向けポートフォリオテンプレート。プロジェクト紹介、スキル表示。',
     image: '💼',
     techStack: ['Remix', 'React', 'Tailwind CSS', 'Framer Motion'],
-    features: ['アニメーション', 'ダークモード', 'コンタクトフォーム', 'ブログ統合'],
+    features: [
+      'アニメーション',
+      'ダークモード',
+      'コンタクトフォーム',
+      'ブログ統合',
+    ],
     status: '完成',
   },
   {
@@ -65,7 +76,8 @@ const projects = [
   {
     id: 6,
     name: 'ダッシュボード',
-    description: 'データビジュアライゼーションダッシュボード。チャート、グラフ表示。',
+    description:
+      'データビジュアライゼーションダッシュボード。チャート、グラフ表示。',
     image: '📊',
     techStack: ['Remix', 'React', 'Chart.js', 'D3.js', 'PostgreSQL'],
     features: [

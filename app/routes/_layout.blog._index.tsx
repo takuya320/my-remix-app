@@ -127,7 +127,8 @@ export default function Blog() {
         </h2>
         <p className="text-gray-700 mb-3">
           このブログページは、Remixの動的ルーティング機能を示しています。
-          各記事は <code className="bg-white px-2 py-1 rounded">/blog/$slug</code>{' '}
+          各記事は{' '}
+          <code className="bg-white px-2 py-1 rounded">/blog/$slug</code>{' '}
           パターンでアクセスできます。
         </p>
         <p className="text-gray-700">

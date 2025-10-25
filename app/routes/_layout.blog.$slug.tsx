@@ -217,7 +217,8 @@ export default function BlogPost() {
               </code>
             </p>
             <p className="text-gray-700">
-              URLの <code className="bg-white px-2 py-1 rounded text-sm">$slug</code>{' '}
+              URLの{' '}
+              <code className="bg-white px-2 py-1 rounded text-sm">$slug</code>{' '}
               部分は動的パラメータです。Remixは自動的にこの値を抽出し、Loaderに渡します。
               これにより、同じコンポーネントで異なるコンテンツを表示できます。
             </p>

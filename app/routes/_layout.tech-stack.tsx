@@ -221,7 +221,9 @@ export default function TechStack() {
             </div>
             <div>
               <h3 className="text-2xl font-semibold">Vercel</h3>
-              <p className="text-gray-300">フロントエンドホスティングプラットフォーム</p>
+              <p className="text-gray-300">
+                フロントエンドホスティングプラットフォーム
+              </p>
             </div>
           </div>
           <p className="mb-4 text-gray-200">

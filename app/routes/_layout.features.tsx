@@ -40,7 +40,9 @@ export default function Features() {
                 主な特徴：
               </h4>
               <ul className="list-disc pl-6 space-y-1 text-gray-700">
-                <li>サーバーサイドで実行されるため、セキュアなデータアクセス</li>
+                <li>
+                  サーバーサイドで実行されるため、セキュアなデータアクセス
+                </li>
                 <li>並列データフェッチによる高速化</li>
                 <li>型安全なデータ取得（TypeScript完全対応）</li>
                 <li>自動的なエラーハンドリングとバウンダリ</li>
@@ -61,7 +63,9 @@ export default function Features() {
                 主な特徴：
               </h4>
               <ul className="list-disc pl-6 space-y-1 text-gray-700">
-                <li>プログレッシブエンハンスメント対応（JavaScript無しでも動作）</li>
+                <li>
+                  プログレッシブエンハンスメント対応（JavaScript無しでも動作）
+                </li>
                 <li>CSRF保護が標準で有効</li>
                 <li>バリデーションエラーの簡単な処理</li>
                 <li>楽観的UI更新のサポート</li>
@@ -185,7 +189,9 @@ export default function Features() {
               1
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-2">ホットモジュールリプレースメント</h3>
+              <h3 className="text-xl font-semibold mb-2">
+                ホットモジュールリプレースメント
+              </h3>
               <p className="text-gray-700">
                 コード変更時に、ブラウザの状態を保持したまま即座に反映。開発効率が大幅に向上します。
               </p>
@@ -211,7 +217,9 @@ export default function Features() {
               3
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-2">明確なエラーメッセージ</h3>
+              <h3 className="text-xl font-semibold mb-2">
+                明確なエラーメッセージ
+              </h3>
               <p className="text-gray-700">
                 問題の原因を特定しやすい詳細なエラーメッセージとスタックトレース。
               </p>

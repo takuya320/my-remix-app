@@ -11,7 +11,12 @@ const projects = [
       'Remixを使用したモダンなECサイト。商品一覧、カート機能、決済統合を実装。',
     image: '🛒',
     techStack: ['Remix', 'React', 'TypeScript', 'Tailwind CSS', 'Stripe'],
-    features: ['商品管理', 'ショッピングカート', 'オンライン決済', 'レスポンシブデザイン'],
+    features: [
+      '商品管理',
+      'ショッピングカート',
+      'オンライン決済',
+      'レスポンシブデザイン',
+    ],
     status: '完成',
     details: `
       このプロジェクトは、Remixを使用して構築されたフルスタックのECサイトです。
@@ -117,10 +122,16 @@ const projects = [
   {
     id: 4,
     name: 'ポートフォリオサイト',
-    description: '開発者向けポートフォリオテンプレート。プロジェクト紹介、スキル表示。',
+    description:
+      '開発者向けポートフォリオテンプレート。プロジェクト紹介、スキル表示。',
     image: '💼',
     techStack: ['Remix', 'React', 'Tailwind CSS', 'Framer Motion'],
-    features: ['アニメーション', 'ダークモード', 'コンタクトフォーム', 'ブログ統合'],
+    features: [
+      'アニメーション',
+      'ダークモード',
+      'コンタクトフォーム',
+      'ブログ統合',
+    ],
     status: '完成',
     details: `
       開発者向けの美しいポートフォリオサイトテンプレートです。
@@ -190,7 +201,8 @@ const projects = [
   {
     id: 6,
     name: 'ダッシュボード',
-    description: 'データビジュアライゼーションダッシュボード。チャート、グラフ表示。',
+    description:
+      'データビジュアライゼーションダッシュボード。チャート、グラフ表示。',
     image: '📊',
     techStack: ['Remix', 'React', 'Chart.js', 'D3.js', 'PostgreSQL'],
     features: [
@@ -362,7 +374,8 @@ export default function ProjectDetail() {
                 </code>
               </p>
               <p className="text-gray-700">
-                URLの <code className="bg-white px-2 py-1 rounded text-sm">$id</code>{' '}
+                URLの{' '}
+                <code className="bg-white px-2 py-1 rounded text-sm">$id</code>{' '}
                 部分は動的パラメータです。Remixは自動的にこの値を抽出し、Loaderに渡します。
                 LoaderはこのIDを使用してデータベースから該当するプロジェクトを取得し、
                 同じコンポーネントで異なるプロジェクトの詳細を表示できます。

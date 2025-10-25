@@ -5,7 +5,8 @@ export const meta: MetaFunction = () => {
     { title: 'サイト概要 - Remix情報ページ' },
     {
       name: 'description',
-      content: 'Remix情報ページのサイト概要。このサイトの目的、構成、特徴について。',
+      content:
+        'Remix情報ページのサイト概要。このサイトの目的、構成、特徴について。',
     },
   ]
 }
@@ -75,7 +76,9 @@ export default function About() {
             </p>
           </div>
           <div className="border-l-4 border-blue-600 pl-4">
-            <h3 className="text-xl font-semibold mb-2">サイト概要（このページ）</h3>
+            <h3 className="text-xl font-semibold mb-2">
+              サイト概要（このページ）
+            </h3>
             <p className="text-gray-700">
               このサイトの目的、構成、特徴について詳しく説明しています。
             </p>
