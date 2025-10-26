@@ -347,7 +347,7 @@ export default function NextjsVsRemix() {
                   </li>
                   <li>・React Server Components統合</li>
                   <li>
-                    ・loading.tsx、error.tsx、layout.txsによる宣言的UI状態管理
+                    ・loading.tsx、error.tsx、layout.tsxによる宣言的UI状態管理
                   </li>
                 </ul>
               </div>
