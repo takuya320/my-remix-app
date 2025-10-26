@@ -10,6 +10,8 @@ export default function Navigation() {
     { path: '/tech-stack', label: '技術スタック' },
     { path: '/blog', label: 'ブログ' },
     { path: '/projects', label: 'プロジェクト' },
+    { path: '/nextjs-vs-remix', label: 'Next.js vs Remix' },
+    { path: '/react-vs-remix', label: 'React vs Remix' },
   ]
 
   return (
