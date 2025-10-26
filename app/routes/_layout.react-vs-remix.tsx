@@ -97,7 +97,7 @@ export default function ReactVsRemix() {
                   </div>
                 </div>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  Metaが開発するUIライブラリ。コンポーネントベースの宣言的UI構築に特化。
+                  Metaが開発し、オープンソースとしてMetaおよびコミュニティによって保守されているUIライブラリ。コンポーネントベースの宣言的UI構築に特化。
                   ルーティング、状態管理、データフェッチなどは外部ライブラリと組み合わせて使用。
                   最小限の機能のみを提供し、自由度が高い。
                 </p>
