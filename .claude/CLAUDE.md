@@ -1,24 +1,15 @@
 # My Remix App - Project Guidelines
 
-> **Note on the name**: the repository is still called `my-remix-app`, but it no
-> longer runs on Remix. Remix v2 reached End of Life with the React Router v8
-> release, so in September 2026 this project migrated to React Router v8
-> Framework Mode — the direct continuation of Remix v2 by the same team. The
-> site's _content_ is still about Remix; the _stack_ is React Router.
+@../AGENTS.md
 
-## Project Overview
+`AGENTS.md` above is the single copy of every rule that is not specific to one
+tool: the stack, code style, the comment convention, the before-committing
+checks and the self-review requirement. Claude Code expands that import at
+launch, and agents that read `AGENTS.md` directly get the same rules. Change a
+shared rule there, not here. This file adds what only applies to Claude Code
+or needs more depth than another agent would want.
 
-This is a React Router (Framework Mode) application using:
-
-- **React Router v8** (Framework Mode, Vite-based build)
-- **React 19**
-- **TypeScript** (strict mode)
-- **Tailwind CSS v4** for styling (CSS-first config, no tailwind.config.ts)
-- **pnpm** as package manager
-- **Node.js >= 22.22.0** (required by React Router v8)
-- **ESLint** for code quality
-
-### Packages
+## Packages
 
 | Purpose                                 | Package                   |
 | --------------------------------------- | ------------------------- |
@@ -28,57 +19,7 @@ This is a React Router (Framework Mode) application using:
 | Vite plugin, CLI, route config types    | `@react-router/dev`       |
 | Flat-file route convention              | `@react-router/fs-routes` |
 
-Never import from `@remix-run/*` — those packages are no longer installed.
-
-## Project-Specific Conventions
-
-### Code Style
-
-- **Prettier config**: Semi-colons disabled, single quotes, trailing commas
-- **ESLint config**: TypeScript, React, JSX a11y, and import rules enabled
-- **Language**: UI text is in Japanese, code/comments in English
-- **Import alias**: Use `~/` for app directory imports (e.g., `import { foo } from '~/utils/foo'`)
-- **File organization**: Routes in `app/routes/`, utilities in `app/utils/`
-
-### Comments
-
-Write a comment only for what the code cannot show. The test is **"why not"**:
-a comment earns its place when it names an alternative a reader would
-reasonably reach for and the reason it was rejected. A plain "why" decays into
-a restatement of the requirement; "why not" records the road not taken, which
-is the one thing that leaves no trace in the code. An external constraint with
-no alternative involved also qualifies.
-
-```tsx
-// Good - names the alternative and why it was not taken
-// Inlined rather than fetched: the content API is not provisioned yet, so the
-// loader returns this array unchanged.
-const blogPosts = [...]
-
-// Bad - a section label duplicating the heading it sits above
-{/* 6. 適用ケース／どちらを選ぶか */}
-<h2>6. 適用ケース／どちらを選ぶか</h2>
-```
-
-- **No comments inside JSX.** A `{/* … */}` section label repeats the heading
-  under it and goes stale the moment that heading is edited. Express structure
-  with the markup itself: `<section>`, headings, and extracted components.
-- **No comment that restates the code**, including a label above an `export`
-  that repeats the symbol name.
-- **Future work is a `TODO`, not prose.** Write `// TODO(#123): …` against an
-  issue, or leave it out.
-- **Exempt:** `app/entry.client.tsx` and `app/entry.server.tsx` keep the
-  comments React Router generates, so both stay diffable against
-  `react-router reveal` and upgrade cleanly. Mechanical comments
-  (`eslint-disable`, `@ts-expect-error` with a reason) are instructions to a
-  tool, not documentation, and are always allowed.
-
-The JSX ban is mechanical, so ESLint owns it rather than review:
-`no-restricted-syntax` fails the build on `JSXExpressionContainer >
-JSXEmptyExpression`. The rest of this section is covered by the self-review
-checklist.
-
-### Component Structure
+## Component Structure
 
 ```tsx
 // Preferred pattern for route components
@@ -101,20 +42,6 @@ export default function ComponentName() {
 }
 ```
 
-### Styling Guidelines
-
-- Use Tailwind CSS utility classes
-- Prefer semantic HTML elements
-- Maintain responsive design (mobile-first approach)
-- Use container classes for consistent layout: `container mx-auto px-4`
-
-### File Naming
-
-- Route files: Flat-file convention, unchanged from Remix v2 (`_index.tsx`, `about.tsx`, `posts.$id.tsx`). Wired up by `flatRoutes()` in `app/routes.ts`
-- Components: PascalCase files (e.g., `UserProfile.tsx`)
-- Utilities: camelCase files (e.g., `formatDate.ts`)
-- Types: Use `.types.ts` suffix for shared types
-
 ## Development Workflow
 
 ### Running the App
@@ -131,40 +58,12 @@ pnpm lint         # Format code with Prettier
 types into `.react-router/types/` (gitignored). Run it after adding or renaming a
 route file if your editor reports missing types.
 
-### Before Committing
+## Self-review: which review to run
 
-1. Run `pnpm typecheck` - ensure no TypeScript errors
-2. Run `pnpm lint` - format code with Prettier
-3. Run `pnpm exec eslint .` - ESLint is not wired into the npm scripts
-4. Run `pnpm test` - Vitest; `pnpm test:watch` while working
-5. Test changes in browser
-6. Write descriptive commit messages (English, conventional commits format)
-
-### Self-Review (required before finishing a task or opening a PR)
-
-`AGENTS.md` in the repository root carries a tool-agnostic version of this
-section for agents that do not read `CLAUDE.md`. Keep the two in sync when you
-change the rule.
-
-Automated checks only cover formatting, lint and types. Before you report a task
-as done, and before you run `gh pr create`, review your own diff:
-
-1. Always re-read the diff yourself (`git diff`) with these questions in mind:
-   - Does the change stay inside the requested scope? No stray edits, no
-     leftover debug code, no commented-out blocks.
-   - Are error paths handled, and do loaders/actions fail with a clear message?
-   - Does anything here belong in a loader/action rather than a component?
-   - Does it hold to Code Style and Comments above?
-2. Then run the review depth that matches the risk of the change (see the table
-   below), and resolve every finding — fix it, or state in the PR description
-   why it is acceptable.
-
-#### Which review to run
-
-| Change                | Review                                               |
-| --------------------- | ---------------------------------------------------- |
-| Docs, CI, config only | The `git diff` re-read above. No agent review needed |
-| Anything under `app/` | `/code-review medium`                                |
+| Change                | Review                                                      |
+| --------------------- | ----------------------------------------------------------- |
+| Docs, CI, config only | The `git diff` re-read in AGENTS.md. No agent review needed |
+| Anything under `app/` | `/code-review medium`                                       |
 
 Always pass `/code-review` an explicit level: with no level it reuses whatever
 level was typed last. `low`/`medium` return fewer, high-confidence findings;
@@ -181,9 +80,7 @@ intent, not against the requirement. For anything beyond a docs or config
 change, run the review from a fresh session against the branch or PR, so the
 reviewer reads the code instead of remembering why it was written that way.
 
-CI (`.github/workflows/test.yml`) runs Prettier `--check`, ESLint,
-`pnpm typecheck`, `pnpm test` and `pnpm build` on every pull request. A green
-CI is the floor, not the review.
+A green CI is the floor, not the review.
 
 ## TypeScript Guidelines
 
