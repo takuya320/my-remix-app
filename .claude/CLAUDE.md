@@ -215,13 +215,18 @@ Vitest runs in Node, configured in `vitest.config.ts`. It deliberately leaves
 out the `reactRouter()` plugin, which builds the route graph and expects a dev
 server the tests never start. `pnpm test` runs once, `pnpm test:watch` watches.
 
-Tests live next to what they cover as `*.test.ts`. `app/routes.ts` passes
+Tests live next to what they cover, as `*.test.ts` or, when they render
+something, `*.test.tsx`. `app/routes.ts` passes
 `ignoredRouteFiles: ['**/*.test.*']`, without which `flatRoutes()` registers a
 colocated test as a route and the client build fails on its server-only
 imports.
 
-Covered today: the lookups in `app/utils/content.ts`, the `blog.$slug` and
-`projects.$id` loaders including their 404 paths, and the meta functions.
+Covered today: the helpers in `app/utils`, the `blog.$slug` and `projects.$id`
+loaders including their 404 paths, the meta functions, and the rendering of
+the navigation, the blog and project listings and details, and all three error
+boundaries. Not covered: the static content pages, which have no behaviour to
+get wrong — `_index`, `about`, `features`, `tech-stack` and the three
+comparison pages.
 
 Write tests that take their data as an argument, the way the lookups do, so
 editing a blog post does not break them.
@@ -230,8 +235,14 @@ A test that renders a component opts into jsdom with `// @vitest-environment
 jsdom` on its first line, rather than the whole suite paying for a DOM it does
 not use. Render through `createRoutesStub` from `react-router` when the
 component needs router context — the root `ErrorBoundary` reads
-`useRouteError()`, which is only populated by a router. No E2E layer yet;
-Playwright is the next step if one is needed.
+`useRouteError()`, which is only populated by a router, and a route's
+`ErrorBoundary` only renders when its loader throws.
+
+Check a new test by breaking the code it covers and watching it fail. A
+component test can pass for the wrong reason: asserting that a listing does
+not show an article body proves nothing, because the listing never renders
+that field whatever the loader returns. No E2E layer yet; Playwright is the
+next step if one is needed.
 
 ## Deployment Notes
 

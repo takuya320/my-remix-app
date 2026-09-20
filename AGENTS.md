@@ -94,9 +94,10 @@ CI (`.github/workflows/test.yml`) runs Prettier `--check`, ESLint,
 ## Self-review is required
 
 Before reporting a task as done, and before opening a pull request, review your
-own diff. The tests cover the helpers in `app/utils`, the two detail loaders,
-the meta functions and the root error boundary; every other component is
-rendered by nothing but the browser.
+own diff. The tests cover the helpers in `app/utils`, the detail loaders and
+the meta functions, and they render the parts with branching behaviour: the
+navigation, the blog and project pages, and the three error boundaries. The
+static content pages are rendered by nothing but the browser.
 
 1. Re-read `git diff` and confirm:
    - the change stays inside what was asked — no stray edits, no leftover debug
