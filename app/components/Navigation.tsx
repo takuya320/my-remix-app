@@ -12,6 +12,7 @@ export default function Navigation() {
     { path: '/projects', label: 'プロジェクト' },
     { path: '/nextjs-vs-remix', label: 'Next.js vs Remix' },
     { path: '/react-vs-remix', label: 'React vs Remix' },
+    { path: '/remix-v3', label: 'Remix v3' },
   ]
 
   return (
