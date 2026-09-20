@@ -1,19 +1,25 @@
 # My Remix App
 
-A modern web application built with Remix v2, React 18, and TypeScript.
+A modern web application built with React Router v8, React 19, and TypeScript.
+
+> **About the name**: the repository is still called `my-remix-app`, but it no
+> longer runs on Remix. Remix v2 reached End of Life with the React Router v8
+> release, so in September 2026 this project migrated to React Router v8
+> Framework Mode — the direct continuation of Remix v2 by the same team. The
+> site's content is still about Remix; the stack is React Router.
 
 ## Tech Stack
 
-- **[Remix v2](https://remix.run)** - Full-stack web framework
-- **[React 18](https://react.dev)** - UI library
+- **[React Router v8](https://reactrouter.com)** - Full-stack web framework (Framework Mode)
+- **[React 19](https://react.dev)** - UI library
 - **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript
-- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[Tailwind CSS v4](https://tailwindcss.com/)** - Utility-first CSS framework
 - **[Vite](https://vitejs.dev/)** - Fast build tool
 - **[pnpm](https://pnpm.io/)** - Fast, disk space efficient package manager
 
 ## Prerequisites
 
-- **Node.js** >= 22.0.0
+- **Node.js** >= 22.22.0 (required by React Router v8)
 - **pnpm** >= 10.0.0
 
 ## Development
@@ -37,8 +43,10 @@ The app will be available at `http://localhost:5173`
 - `pnpm dev` - Start development server with hot module replacement
 - `pnpm build` - Build for production
 - `pnpm start` - Run production build locally
-- `pnpm typecheck` - Type check without building
+- `pnpm typecheck` - Generate route types (`react-router typegen`) and type check
 - `pnpm lint` - Format code with Prettier
+
+ESLint is configured but not wired into the scripts; run it with `pnpm exec eslint .`
 
 ## Project Structure
 
@@ -46,16 +54,21 @@ The app will be available at `http://localhost:5173`
 my-remix-app/
 ├── app/
 │   ├── routes/          # Route components
-│   ├── root.tsx         # Root layout with error boundary
+│   ├── components/      # Reusable components
+│   ├── routes.ts        # Route config (flatRoutes())
+│   ├── root.tsx         # Root layout
 │   ├── entry.client.tsx # Client entry point
 │   ├── entry.server.tsx # Server entry point
 │   └── tailwind.css     # Tailwind imports
 ├── public/              # Static assets
 ├── .claude/             # Claude Code configuration
+├── .react-router/       # Generated route types (gitignored)
 ├── package.json
 ├── tsconfig.json
 ├── vite.config.ts
-├── tailwind.config.ts
+├── react-router.config.ts
+├── eslint.config.js     # ESLint flat config
+├── postcss.config.js
 └── vercel.json          # Vercel deployment config
 ```
 
@@ -67,7 +80,7 @@ This project is configured for [Vercel](https://vercel.com) deployment.
 
 1. Push your code to GitHub
 2. Import your repository on [vercel.com](https://vercel.com)
-3. Vercel will automatically detect Remix and configure the build settings
+3. Vercel will automatically detect React Router and configure the build settings
 4. Deploy!
 
 Alternatively, use the Vercel CLI:
@@ -103,7 +116,7 @@ You can deploy to any Node.js hosting platform:
 - [AWS](https://aws.amazon.com)
 - [DigitalOcean](https://www.digitalocean.com)
 
-Make sure your hosting platform supports Node.js >= 22.0.0.
+Make sure your hosting platform supports Node.js >= 22.22.0.
 
 ## Code Style
 
@@ -116,7 +129,7 @@ This project uses:
 
 ## Documentation
 
-- [Remix Documentation](https://remix.run/docs)
+- [React Router Documentation](https://reactrouter.com)
 - [React Documentation](https://react.dev)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)

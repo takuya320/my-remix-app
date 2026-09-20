@@ -122,7 +122,7 @@ export default function TechStack() {
                 <h3 className="text-2xl font-semibold text-teal-600">
                   Tailwind CSS
                 </h3>
-                <p className="text-sm text-gray-600">Version 3</p>
+                <p className="text-sm text-gray-600">Version 4</p>
               </div>
             </div>
             <p className="text-gray-700 mb-3">
