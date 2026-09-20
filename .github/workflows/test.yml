@@ -24,3 +24,5 @@ jobs:
         run: pnpm exec eslint .
       - name: Typecheck
         run: pnpm typecheck
+      - name: Test
+        run: pnpm test
