@@ -1,4 +1,4 @@
-import type { MetaFunction } from '@remix-run/node'
+import type { MetaFunction } from 'react-router'
 
 export const meta: MetaFunction = () => {
   return [
@@ -401,16 +401,18 @@ export default function RemixV3() {
 
           <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
             <h3 className="text-xl font-semibold mb-3 text-blue-800">
-              このサイト（Remix v2 製）の場合
+              このサイトの場合（移行済み）
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              本サイトは <code>@remix-run/* 2.17.5</code> と React 18
-              で構築されています。現実的な選択肢は
-              <strong>React Router v7 / v8 の Framework Mode への移行</strong>
-              です。<code>loader</code> / <code>action</code> /
-              ネストルーティングはそのまま使えます。ただし React Router v8 は
-              Node 22.22.0+ / React 19.2.7+ / Vite 7+ / ESM only
-              が要件のため、React 19 への更新が前提になります。
+              本サイトは <code>@remix-run/* 2.17.5</code> + React 18
+              で構築されていましたが、2026年9月に
+              <strong>React Router v8 の Framework Mode</strong>{' '}
+              へ移行しました。<code>loader</code> / <code>action</code> /
+              ネストルーティングはほぼそのまま移行でき、
+              <code>json()</code> の削除と meta の <code>data</code> →{' '}
+              <code>loaderData</code> への改名が主な変更点でした。React Router
+              v8 は Node 22.22.0+ / React 19.2.7+ / Vite 7+ / ESM only
+              が要件です。
             </p>
           </div>
         </div>

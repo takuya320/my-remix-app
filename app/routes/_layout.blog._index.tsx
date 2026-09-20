@@ -1,6 +1,5 @@
-import type { MetaFunction, LoaderFunctionArgs } from '@remix-run/node'
-import { Link, useLoaderData } from '@remix-run/react'
-import { json } from '@remix-run/node'
+import type { MetaFunction, LoaderFunctionArgs } from 'react-router'
+import { Link, useLoaderData } from 'react-router'
 
 // サンプルブログデータ（実際のアプリではデータベースやCMSから取得）
 const blogPosts = [
@@ -62,7 +61,7 @@ const blogPosts = [
 
 export async function loader({ request }: LoaderFunctionArgs) {
   // 実際のアプリでは、検索やフィルタリングのクエリパラメータを処理
-  return json({ posts: blogPosts })
+  return { posts: blogPosts }
 }
 
 export const meta: MetaFunction = () => {

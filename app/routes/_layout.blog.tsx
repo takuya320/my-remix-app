@@ -1,8 +1,7 @@
-import { Outlet } from '@remix-run/react'
-import { json } from '@remix-run/node'
+import { Outlet } from 'react-router'
 
 export async function loader() {
-  return json({})
+  return {}
 }
 
 export default function BlogLayout() {
