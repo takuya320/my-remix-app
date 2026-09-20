@@ -13,7 +13,7 @@ This is a React Router (Framework Mode) application using:
 - **React Router v8** (Framework Mode, Vite-based build)
 - **React 19**
 - **TypeScript** (strict mode)
-- **Tailwind CSS** for styling
+- **Tailwind CSS v4** for styling (CSS-first config, no tailwind.config.ts)
 - **pnpm** as package manager
 - **Node.js >= 22.22.0** (required by React Router v8)
 - **ESLint** for code quality
@@ -171,7 +171,8 @@ my-remix-app/
 ├── tsconfig.json
 ├── vite.config.ts
 ├── react-router.config.ts
-├── tailwind.config.ts
+├── eslint.config.js     # ESLint flat config
+├── postcss.config.js    # @tailwindcss/postcss
 └── .npmrc               # pnpm configuration
 ```
 
@@ -324,10 +325,14 @@ the same time.
 
 ## Known Issues / Technical Debt
 
-- No error boundaries implemented yet
+- No root-level error boundary. `blog.$slug` and `projects.$id` export their
+  own `ErrorBoundary`, but `app/root.tsx` does not
 - No testing infrastructure set up
-- ESLint is configured but not integrated into npm scripts
-- Tailwind CSS is still on v3 (v4 is current); ESLint is on v8 (v10 is current)
+- ESLint is configured but not integrated into npm scripts; run
+  `pnpm exec eslint .`
+- ESLint is on v9. v10 is blocked on eslint-plugin-react (peers up to ^9.7)
+  and eslint-plugin-jsx-a11y (up to ^9), and CI installs with
+  --strict-peer-dependencies
 - Footer still reads `© 2024`
 
 ## Questions to Ask When Uncertain
