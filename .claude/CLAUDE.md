@@ -125,17 +125,19 @@ typed last, which makes the depth non-deterministic. `low`/`medium` return
 fewer, high-confidence findings; `high`/`xhigh`/`max` cover more ground but
 include uncertain findings that need triage.
 
-| Change                                  | Review                                               |
-| --------------------------------------- | ---------------------------------------------------- |
-| Docs, CI, config only                   | The `git diff` re-read above. No agent review needed |
-| Presentational components, Tailwind     | `/code-review medium`                                |
-| `loader` / `action` / form handling     | `/code-review high`                                  |
-| Sessions, env vars, user-supplied input | `/code-review high` + `/security-review`             |
-| A real feature PR, before merge         | `/code-review xhigh <pr>` targeting the branch       |
+| Change                | Review                                               |
+| --------------------- | ---------------------------------------------------- |
+| Docs, CI, config only | The `git diff` re-read above. No agent review needed |
+| Anything under `app/` | `/code-review medium`                                |
+
+Today every route renders static content from hardcoded arrays in its loader:
+the site has no `action`, no `<Form>`, no session storage and no `process.env`
+usage. Once a change introduces any of those, raise that change to
+`/code-review high` and run `/security-review` alongside it.
 
 Self-review from the context that wrote the code checks the code against its
-own intent, not against the requirement. For anything beyond the first two
-rows, run the review from a fresh session against the branch or PR, so the
+own intent, not against the requirement. For anything beyond a docs or config
+change, run the review from a fresh session against the branch or PR, so the
 reviewer reads the code instead of remembering why it was written that way.
 
 CI (`.github/workflows/test.yml`) runs Prettier `--check`, ESLint and
