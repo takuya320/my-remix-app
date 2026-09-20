@@ -1,4 +1,4 @@
-import type { MetaFunction, LoaderFunctionArgs } from 'react-router'
+import type { MetaFunction } from 'react-router'
 import { Link, useLoaderData } from 'react-router'
 
 // サンプルブログデータ（実際のアプリではデータベースやCMSから取得）
@@ -59,7 +59,7 @@ const blogPosts = [
   },
 ]
 
-export async function loader({ request }: LoaderFunctionArgs) {
+export async function loader() {
   // 実際のアプリでは、検索やフィルタリングのクエリパラメータを処理
   return { posts: blogPosts }
 }

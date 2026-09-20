@@ -1348,7 +1348,8 @@ export default function Component() {
                     </li>
                     <li>・状態管理ライブラリ→Remixのデータフローへ移行</li>
                     <li>
-                      ・クライアント専用ライブラリの扱い（'use client'的な対応）
+                      ・クライアント専用ライブラリの扱い（{"'use client'"}
+                      的な対応）
                     </li>
                   </ul>
                   <p>
@@ -1904,13 +1905,13 @@ export default function Component() {
                 以下のキーワードで検索すると、詳細な比較記事や実際の導入事例を見つけることができます：
               </p>
               <ul className="text-sm space-y-2 text-gray-700">
-                <li>・"React vs React Router 2026"</li>
-                <li>・"When to use React vs Framework"</li>
-                <li>・"Remix getting started"</li>
-                <li>・"React SPA vs SSR comparison"</li>
-                <li>・"Migrating Remix v2 to React Router"</li>
-                <li>・"React ecosystem 2026"</li>
-                <li>・"Remix performance benefits"</li>
+                <li>・&quot;React vs React Router 2026&quot;</li>
+                <li>・&quot;When to use React vs Framework&quot;</li>
+                <li>・&quot;Remix getting started&quot;</li>
+                <li>・&quot;React SPA vs SSR comparison&quot;</li>
+                <li>・&quot;Migrating Remix v2 to React Router&quot;</li>
+                <li>・&quot;React ecosystem 2026&quot;</li>
+                <li>・&quot;Remix performance benefits&quot;</li>
               </ul>
               <p className="text-xs text-gray-600 mt-4">
                 ※

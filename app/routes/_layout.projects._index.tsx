@@ -1,4 +1,4 @@
-import type { MetaFunction, LoaderFunctionArgs } from 'react-router'
+import type { MetaFunction } from 'react-router'
 import { Link, useLoaderData } from 'react-router'
 
 // サンプルプロジェクトデータ（実際のアプリではデータベースから取得）
@@ -89,7 +89,7 @@ const projects = [
   },
 ]
 
-export async function loader({ request }: LoaderFunctionArgs) {
+export async function loader() {
   // 実際のアプリでは、検索やフィルタリングのクエリパラメータを処理
   return { projects }
 }

@@ -412,7 +412,7 @@ export default function NextjsVsRemix() {
                     </li>
                     <li>・fetch拡張により自動的なrevalidate、cache制御</li>
                     <li>
-                      ・'use client'ディレクティブでクライアント境界を明示
+                      ・{"'use client'"}ディレクティブでクライアント境界を明示
                     </li>
                   </ul>
                 </div>
@@ -1769,13 +1769,13 @@ export default function NextjsVsRemix() {
                 以下のキーワードで検索すると、詳細な比較記事や実際の導入事例を見つけることができます：
               </p>
               <ul className="text-sm space-y-2 text-gray-700">
-                <li>・"Next.js vs React Router comparison 2026"</li>
-                <li>・"Remix performance benchmark"</li>
-                <li>・"Next.js App Router vs Remix"</li>
-                <li>・"Migrating from Next.js to Remix"</li>
-                <li>・"Remix vs Next.js for SaaS"</li>
-                <li>・"Next.js case studies"</li>
-                <li>・"Remix Shopify integration"</li>
+                <li>・&quot;Next.js vs React Router comparison 2026&quot;</li>
+                <li>・&quot;Remix performance benchmark&quot;</li>
+                <li>・&quot;Next.js App Router vs Remix&quot;</li>
+                <li>・&quot;Migrating from Next.js to Remix&quot;</li>
+                <li>・&quot;Remix vs Next.js for SaaS&quot;</li>
+                <li>・&quot;Next.js case studies&quot;</li>
+                <li>・&quot;Remix Shopify integration&quot;</li>
               </ul>
               <p className="text-xs text-gray-600 mt-4">
                 ※
