@@ -40,6 +40,61 @@ Never import from `@remix-run/*` — those packages are no longer installed.
 - **Import alias**: Use `~/` for app directory imports (e.g., `import { foo } from '~/utils/foo'`)
 - **File organization**: Routes in `app/routes/`, utilities in `app/utils/`
 
+### Comments
+
+Write a comment only for what the code cannot show. The primary test is **"why
+not"**: a comment earns its place when it names an alternative a reader would
+reasonably reach for and the reason it was rejected. A plain "why" comment tends
+to decay into a restatement of the requirement; "why not" records the road not
+taken, which is the one thing that leaves no trace in the code. An external
+constraint with no alternative involved also qualifies.
+
+```tsx
+// Good - names the alternative and why it was not taken
+// Inlined rather than fetched: the content API is not provisioned yet, so the
+// loader returns this array unchanged.
+const blogPosts = [...]
+
+// Bad - restates the symbol below it
+// エラーバウンダリー（記事が見つからない場合）
+export function ErrorBoundary() {}
+
+// Bad - a section label duplicating the heading it sits above
+{/* 6. 適用ケース／どちらを選ぶか */}
+<h2>6. 適用ケース／どちらを選ぶか</h2>
+```
+
+- **No comments inside JSX.** A `{/* … */}` section label repeats the heading
+  under it and goes stale the moment that heading is edited. Express structure
+  with the markup itself: `<section>`, headings, and extracted components.
+- **No comment that restates the code**, including a label above an `export`
+  that repeats the symbol name.
+- **Future work is a `TODO`, not prose.** Write `// TODO(#123): …` against an
+  issue, or leave it out.
+- **Comments are in English.** Only UI text is Japanese.
+- **Exempt:** `app/entry.client.tsx` and `app/entry.server.tsx` keep the
+  comments React Router generates, so both stay diffable against
+  `react-router reveal` and upgrade cleanly. Mechanical comments
+  (`eslint-disable`, `@ts-expect-error` with a reason) are instructions to a
+  tool, not documentation, and are always allowed.
+
+The JSX ban is mechanical, so ESLint owns it rather than review:
+
+```js
+// eslint.config.js
+'no-restricted-syntax': [
+  'error',
+  {
+    selector: 'JSXExpressionContainer > JSXEmptyExpression',
+    message:
+      'No comments inside JSX. A section label duplicates the heading below it.',
+  },
+],
+```
+
+That rule is **not enabled yet** - see Known Issues. Everything else in this
+section is covered by the self-review checklist.
+
 ### Component Structure
 
 ```tsx
@@ -115,6 +170,8 @@ as done, and before you run `gh pr create`, review your own diff:
      leftover debug code, no commented-out blocks.
    - Are error paths handled, and do loaders/actions fail with a clear message?
    - Is UI text in Japanese and are code/comments in English?
+   - Does every comment pass the "why not" test, and is there no comment
+     inside JSX? See Comments above.
    - Does anything here belong in a loader/action rather than a component?
 2. Then run the review depth that matches the risk of the change (see the table
    below), and resolve every finding — fix it, or state in the PR description
@@ -379,6 +436,13 @@ the same time.
   and eslint-plugin-jsx-a11y (up to ^9), and CI installs with
   --strict-peer-dependencies
 - Footer still reads `© 2024`
+- The `no-restricted-syntax` rule banning JSX comments (see Comments) is not
+  enabled in `eslint.config.js` yet. Turning it on fails CI immediately on 77
+  existing `{/* … */}` section labels — 35 in `_layout.react-vs-remix.tsx`, 34
+  in `_layout.nextjs-vs-remix.tsx`, 8 in `_layout.remix-v3.tsx` — so the rule
+  and that cleanup have to land in the same pull request. The counts are
+  measured; no other file under `app/` trips the rule, so the exempt entry
+  files need no ESLint override
 
 ## Questions to Ask When Uncertain
 
