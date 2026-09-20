@@ -97,10 +97,51 @@ route file if your editor reports missing types.
 
 1. Run `pnpm typecheck` - ensure no TypeScript errors
 2. Run `pnpm lint` - format code with Prettier
-3. Test changes in browser
-4. Write descriptive commit messages (English, conventional commits format)
+3. Run `pnpm exec eslint .` - ESLint is not wired into the npm scripts
+4. Test changes in browser
+5. Write descriptive commit messages (English, conventional commits format)
 
-Note: ESLint is configured but not included in the npm scripts. You can run it manually with `pnpm eslint .` if needed.
+### Self-Review (required before finishing a task or opening a PR)
+
+Automated checks only cover formatting, lint and types. Before you report a task
+as done, and before you run `gh pr create`, review your own diff:
+
+1. Always re-read the diff yourself (`git diff`) with these questions in mind:
+   - Does the change stay inside the requested scope? No stray edits, no
+     leftover debug code, no commented-out blocks.
+   - Are error paths handled, and do loaders/actions fail with a clear message?
+   - Is UI text in Japanese and are code/comments in English?
+   - Does anything here belong in a loader/action rather than a component?
+2. Then run the review depth that matches the risk of the change (see the table
+   below), and resolve every finding — fix it, or state in the PR description
+   why it is acceptable.
+
+#### Which review to run
+
+`/code-review <level>` reviews the working-tree diff, a branch, or a PR.
+`--fix` applies findings, `--comment` posts them inline on the PR. **Always
+pass an explicit level**: with no level it silently reuses whatever level was
+typed last, which makes the depth non-deterministic. `low`/`medium` return
+fewer, high-confidence findings; `high`/`xhigh`/`max` cover more ground but
+include uncertain findings that need triage.
+
+| Change                | Review                                               |
+| --------------------- | ---------------------------------------------------- |
+| Docs, CI, config only | The `git diff` re-read above. No agent review needed |
+| Anything under `app/` | `/code-review medium`                                |
+
+Today every route renders static content from hardcoded arrays in its loader:
+the site has no `action`, no `<Form>`, no session storage and no `process.env`
+usage. Once a change introduces any of those, raise that change to
+`/code-review high` and run `/security-review` alongside it.
+
+Self-review from the context that wrote the code checks the code against its
+own intent, not against the requirement. For anything beyond a docs or config
+change, run the review from a fresh session against the branch or PR, so the
+reviewer reads the code instead of remembering why it was written that way.
+
+CI (`.github/workflows/test.yml`) runs Prettier `--check`, ESLint and
+`pnpm typecheck` on every pull request. A green CI is the floor, not the review.
 
 ## TypeScript Guidelines
 
@@ -329,7 +370,7 @@ the same time.
   own `ErrorBoundary`, but `app/root.tsx` does not
 - No testing infrastructure set up
 - ESLint is configured but not integrated into npm scripts; run
-  `pnpm exec eslint .`
+  `pnpm exec eslint .` (CI runs it directly)
 - ESLint is on v9. v10 is blocked on eslint-plugin-react (peers up to ^9.7)
   and eslint-plugin-jsx-a11y (up to ^9), and CI installs with
   --strict-peer-dependencies

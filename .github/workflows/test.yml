@@ -18,5 +18,9 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm i --frozen-lockfile --prefer-offline --strict-peer-dependencies --ignore-scripts
+      - name: Format check
+        run: pnpm prettier . --check
       - name: Lint
-        run: pnpm lint
+        run: pnpm exec eslint .
+      - name: Typecheck
+        run: pnpm typecheck
