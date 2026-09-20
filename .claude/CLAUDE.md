@@ -73,8 +73,10 @@ const blogPosts = [...]
   (`eslint-disable`, `@ts-expect-error` with a reason) are instructions to a
   tool, not documentation, and are always allowed.
 
-The JSX ban is mechanical, so it belongs to ESLint rather than to review — see
-Known Issues for the rule and why it is not enabled yet.
+The JSX ban is mechanical, so ESLint owns it rather than review:
+`no-restricted-syntax` fails the build on `JSXExpressionContainer >
+JSXEmptyExpression`. The rest of this section is covered by the self-review
+checklist.
 
 ### Component Structure
 
@@ -379,14 +381,6 @@ the same time.
 - ESLint is on v9. v10 is blocked on eslint-plugin-react (peers up to ^9.7)
   and eslint-plugin-jsx-a11y (up to ^9), and CI installs with
   --strict-peer-dependencies
-- The `no-restricted-syntax` rule banning JSX comments (see Comments) is not
-  enabled in `eslint.config.js` yet. The selector is
-  `JSXExpressionContainer > JSXEmptyExpression`. Turning it on fails CI immediately on 77
-  existing `{/* … */}` section labels — 35 in `_layout.react-vs-remix.tsx`, 34
-  in `_layout.nextjs-vs-remix.tsx`, 8 in `_layout.remix-v3.tsx` — so the rule
-  and that cleanup have to land in the same pull request. The counts are
-  measured; no other file under `app/` trips the rule, so the exempt entry
-  files need no ESLint override
 
 ## Questions to Ask When Uncertain
 

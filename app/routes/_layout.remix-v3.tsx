@@ -14,7 +14,6 @@ export const meta: MetaFunction = () => {
 export default function RemixV3() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-5xl">
-      {/* Title */}
       <div className="mb-12 text-center">
         <h1 className="text-5xl font-bold mb-4 bg-linear-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">
           Remix v3
@@ -25,7 +24,6 @@ export default function RemixV3() {
         <p className="text-sm text-gray-500 mt-3">調査時点: 2026年9月20日</p>
       </div>
 
-      {/* 0. 要約 */}
       <section className="mb-16">
         <div className="bg-linear-to-r from-violet-50 to-fuchsia-50 border-l-4 border-violet-500 p-6 rounded-r-lg">
           <h2 className="text-2xl font-bold mb-3 text-violet-800">結論</h2>
@@ -39,7 +37,6 @@ export default function RemixV3() {
         </div>
       </section>
 
-      {/* 1. リリース状況 */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-violet-500 pb-2">
           1. リリース状況
@@ -138,7 +135,6 @@ export default function RemixV3() {
         </div>
       </section>
 
-      {/* 2. Remix 3 の中身 */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-fuchsia-500 pb-2">
           2. Remix 3 の中身
@@ -204,7 +200,6 @@ export default function RemixV3() {
         </div>
       </section>
 
-      {/* 3. コンポーネントモデル */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-violet-500 pb-2">
           3. コンポーネントモデルの変化
@@ -305,7 +300,6 @@ export default function RemixV3() {
         </div>
       </section>
 
-      {/* 4. v2・React Router との関係 */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-red-500 pb-2">
           4. Remix v2・React Router との関係
@@ -418,7 +412,6 @@ export default function RemixV3() {
         </div>
       </section>
 
-      {/* 5. 採用判断 */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-green-500 pb-2">
           5. 採用判断
@@ -521,7 +514,6 @@ export default function RemixV3() {
         </div>
       </section>
 
-      {/* 6. 参考リンク */}
       <section className="mb-8">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-gray-400 pb-2">
           6. 参考リンク
