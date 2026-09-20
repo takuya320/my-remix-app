@@ -12,3 +12,6 @@ export interface Project {
   demoUrl: string
   githubUrl: string
 }
+
+/** A project without its long-form fields, for the index cards. */
+export type ProjectSummary = Omit<Project, 'details' | 'demoUrl' | 'githubUrl'>

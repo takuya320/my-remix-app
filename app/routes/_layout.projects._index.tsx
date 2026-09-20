@@ -2,10 +2,11 @@ import type { MetaFunction } from 'react-router'
 import { Link, useLoaderData } from 'react-router'
 
 import { projects } from '~/data/projects'
+import { listProjectSummaries } from '~/utils/content'
 
 export async function loader() {
   // 実際のアプリでは、検索やフィルタリングのクエリパラメータを処理
-  return { projects }
+  return { projects: listProjectSummaries(projects) }
 }
 
 export const meta: MetaFunction = () => {

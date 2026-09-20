@@ -11,3 +11,6 @@ export interface BlogPost {
   tags: string[]
   readTime: string
 }
+
+/** A post without its body, for the index cards. */
+export type BlogPostSummary = Omit<BlogPost, 'content'>
