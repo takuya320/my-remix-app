@@ -48,6 +48,23 @@ export default tseslint.config(
     rules: reactHooks.configs.recommended.rules,
   },
 
+  // A JSX comment is almost always a section label repeating the heading below
+  // it, which goes stale the moment that heading is edited. See the Comments
+  // section in .claude/CLAUDE.md.
+  {
+    files: ['**/*.{jsx,tsx}'],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'JSXExpressionContainer > JSXEmptyExpression',
+          message:
+            'No comments inside JSX. Express structure with <section>, headings and extracted components instead.',
+        },
+      ],
+    },
+  },
+
   // TypeScript
   {
     files: ['**/*.{ts,tsx}'],

@@ -14,7 +14,6 @@ export const meta: MetaFunction = () => {
 export default function NextjsVsRemix() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-5xl">
-      {/* Title */}
       <div className="mb-12 text-center">
         <h1 className="text-5xl font-bold mb-4 bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
           Next.js vs Remix
@@ -24,7 +23,6 @@ export default function NextjsVsRemix() {
         </p>
       </div>
 
-      {/* 1. はじめに */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-blue-500 pb-2">
           1. はじめに
@@ -124,7 +122,6 @@ export default function NextjsVsRemix() {
         </div>
       </section>
 
-      {/* 2. フレームワーク概要 */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-purple-500 pb-2">
           2. フレームワーク概要
@@ -314,14 +311,12 @@ export default function NextjsVsRemix() {
         </div>
       </section>
 
-      {/* 3. アーキテクチャ／設計思想の比較 */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-green-500 pb-2">
           3. アーキテクチャ／設計思想の比較
         </h2>
 
         <div className="space-y-8">
-          {/* ルーティングモデル */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               ルーティングモデル
@@ -377,7 +372,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* データ取得／フェッチパターン */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               データ取得／フェッチパターン
@@ -449,7 +443,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* レンダリング戦略 */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               レンダリング戦略
@@ -530,7 +523,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* デプロイ・実行環境・ランタイム */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               デプロイ・実行環境・ランタイム
@@ -593,14 +585,12 @@ export default function NextjsVsRemix() {
         </div>
       </section>
 
-      {/* 4. 機能／開発体験の比較 */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-yellow-500 pb-2">
           4. 機能／開発体験の比較
         </h2>
 
         <div className="space-y-8">
-          {/* 開発者体験 */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               開発者体験（DX）
@@ -669,7 +659,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* エコシステム・プラグイン・拡張性 */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               エコシステム・プラグイン・拡張性
@@ -717,7 +706,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* 型安全／TypeScript サポート */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               型安全／TypeScript サポート
@@ -787,7 +775,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* テスト／デバッグ／運用性 */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               テスト／デバッグ／運用性
@@ -836,14 +823,12 @@ export default function NextjsVsRemix() {
         </div>
       </section>
 
-      {/* 5. パフォーマンス・最適化・運用面 */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-red-500 pb-2">
           5. パフォーマンス・最適化・運用面
         </h2>
 
         <div className="space-y-8">
-          {/* JavaScript バンドル・初期ロード */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               JavaScriptバンドルサイズ・初期ロード・Time to Interactive
@@ -899,7 +884,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* キャッシュ戦略 */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               キャッシュ戦略・CDN利用・HTTPヘッダー制御
@@ -957,7 +941,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* スケーラビリティ・運用負荷・ベンダーロックイン */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               スケーラビリティ・運用負荷・ベンダーロックイン
@@ -1005,14 +988,12 @@ export default function NextjsVsRemix() {
         </div>
       </section>
 
-      {/* 6. 適用ケース／どちらを選ぶか */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-indigo-500 pb-2">
           6. 適用ケース／どちらを選ぶか
         </h2>
 
         <div className="space-y-8">
-          {/* 向いているプロジェクト */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               向いているプロジェクトタイプ
@@ -1122,7 +1103,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* 向いていないケース */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               向いていないケース・注意点
@@ -1163,7 +1143,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* 判断基準チェックリスト */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               判断基準チェックリスト
@@ -1242,14 +1221,12 @@ export default function NextjsVsRemix() {
         </div>
       </section>
 
-      {/* 7. 移行／マイグレーション面の考慮 */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-teal-500 pb-2">
           7. 移行／マイグレーション面の考慮
         </h2>
 
         <div className="space-y-8">
-          {/* 既存プロジェクトからの移行 */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               既存プロジェクトからの移行時の課題・コスト
@@ -1338,7 +1315,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* 将来性・保守性 */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               両フレームワークにおける将来性・保守性
@@ -1409,14 +1385,12 @@ export default function NextjsVsRemix() {
         </div>
       </section>
 
-      {/* 8. まとめ／推奨／今後の展望 */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-pink-500 pb-2">
           8. まとめ／推奨／今後の展望
         </h2>
 
         <div className="space-y-8">
-          {/* 総合まとめ */}
           <div className="bg-linear-to-br from-blue-50 via-purple-50 to-pink-50 p-8 rounded-lg border-2 border-purple-300">
             <h3 className="text-2xl font-semibold mb-4 text-purple-900">
               総合まとめ
@@ -1453,7 +1427,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* プロジェクト別簡易ガイド */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               プロジェクト別簡易ガイド
@@ -1528,7 +1501,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* 今後の展望 */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               今後の変化・アップデートで注目すべきポイント
@@ -1621,7 +1593,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* 最終推奨 */}
           <div className="bg-linear-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg shadow-lg">
             <h3 className="text-2xl font-bold mb-4">最終推奨</h3>
             <div className="space-y-3 text-sm leading-relaxed">
@@ -1652,14 +1623,12 @@ export default function NextjsVsRemix() {
         </div>
       </section>
 
-      {/* 9. 参考資料／付録 */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-orange-500 pb-2">
           9. 参考資料／付録
         </h2>
 
         <div className="space-y-8">
-          {/* 公式ドキュメント */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               公式ドキュメント
@@ -1759,7 +1728,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* 比較記事・導入事例 */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               比較記事・導入事例・ベンチマークレポート
@@ -1784,7 +1752,6 @@ export default function NextjsVsRemix() {
             </div>
           </div>
 
-          {/* 用語・略語集 */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               用語・略語集
@@ -1869,7 +1836,6 @@ export default function NextjsVsRemix() {
         </div>
       </section>
 
-      {/* Footer */}
       <div className="text-center py-8 border-t border-gray-300">
         <p className="text-gray-600 text-sm">
           このドキュメントは2026年9月時点の情報に基づいています。
