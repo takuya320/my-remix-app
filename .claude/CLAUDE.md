@@ -103,6 +103,10 @@ route file if your editor reports missing types.
 
 ### Self-Review (required before finishing a task or opening a PR)
 
+`AGENTS.md` in the repository root carries a tool-agnostic version of this
+section for agents that do not read `CLAUDE.md`. Keep the two in sync when you
+change the rule.
+
 Automated checks only cover formatting, lint and types. Before you report a task
 as done, and before you run `gh pr create`, review your own diff:
 
