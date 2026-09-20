@@ -20,16 +20,18 @@ are not installed.
 1. `pnpm typecheck`
 2. `pnpm lint` — Prettier, rewrites files in place
 3. `pnpm exec eslint .` — ESLint is not wired into the npm scripts
-4. Check the change in a browser
-5. Write the commit message in English, Conventional Commits format
+4. `pnpm test` — Vitest, `vitest run`
+5. Check the change in a browser
+6. Write the commit message in English, Conventional Commits format
 
-CI runs `prettier --check`, `eslint` and `pnpm typecheck` on every pull request.
+CI runs `prettier --check`, `eslint`, `pnpm typecheck`, `pnpm test` and
+`pnpm build` on every pull request.
 
 ## Self-review is required
 
 Before reporting a task as done, and before opening a pull request, review your
-own diff. CI only covers formatting, lint and types — nothing checks behaviour,
-because the project has no tests yet.
+own diff. The tests cover the lookups in `app/utils`, the two detail loaders
+and their meta functions; everything the components render is unchecked.
 
 1. Re-read `git diff` and confirm:
    - the change stays inside what was asked — no stray edits, no leftover debug
