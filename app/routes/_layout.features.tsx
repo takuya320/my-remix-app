@@ -27,7 +27,7 @@ export default function Features() {
         <h2 className="text-3xl font-semibold mb-6">コア機能</h2>
 
         <div className="space-y-8">
-          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-xs">
             <h3 className="text-2xl font-semibold mb-4 text-blue-700">
               Loader - データローディング
             </h3>
@@ -35,7 +35,7 @@ export default function Features() {
               Loaderは、ページレンダリング前にサーバーサイドでデータを取得する機能です。
               データベース、API、ファイルシステムなど、あらゆるデータソースからデータを取得できます。
             </p>
-            <div className="bg-gray-50 p-4 rounded border border-gray-200">
+            <div className="bg-gray-50 p-4 rounded-sm border border-gray-200">
               <h4 className="font-semibold mb-2 text-sm text-gray-600">
                 主な特徴：
               </h4>
@@ -50,7 +50,7 @@ export default function Features() {
             </div>
           </div>
 
-          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-xs">
             <h3 className="text-2xl font-semibold mb-4 text-blue-700">
               Action - データ変更処理
             </h3>
@@ -58,7 +58,7 @@ export default function Features() {
               Actionは、フォーム送信やデータ変更を処理する機能です。POST、PUT、DELETE
               リクエストを処理し、データの作成、更新、削除を実行します。
             </p>
-            <div className="bg-gray-50 p-4 rounded border border-gray-200">
+            <div className="bg-gray-50 p-4 rounded-sm border border-gray-200">
               <h4 className="font-semibold mb-2 text-sm text-gray-600">
                 主な特徴：
               </h4>
@@ -73,7 +73,7 @@ export default function Features() {
             </div>
           </div>
 
-          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-xs">
             <h3 className="text-2xl font-semibold mb-4 text-blue-700">
               ファイルベースルーティング
             </h3>
@@ -81,29 +81,29 @@ export default function Features() {
               ファイルシステムの構造がそのままURLルーティングになります。
               直感的で保守しやすいルーティング設計が可能です。
             </p>
-            <div className="bg-gray-50 p-4 rounded border border-gray-200">
+            <div className="bg-gray-50 p-4 rounded-sm border border-gray-200">
               <h4 className="font-semibold mb-2 text-sm text-gray-600">例：</h4>
               <ul className="space-y-2 text-gray-700 font-mono text-sm">
                 <li>
-                  <code className="bg-white px-2 py-1 rounded">
+                  <code className="bg-white px-2 py-1 rounded-sm">
                     app/routes/_index.tsx
                   </code>{' '}
                   → <code>/</code>
                 </li>
                 <li>
-                  <code className="bg-white px-2 py-1 rounded">
+                  <code className="bg-white px-2 py-1 rounded-sm">
                     app/routes/about.tsx
                   </code>{' '}
                   → <code>/about</code>
                 </li>
                 <li>
-                  <code className="bg-white px-2 py-1 rounded">
+                  <code className="bg-white px-2 py-1 rounded-sm">
                     app/routes/blog.$slug.tsx
                   </code>{' '}
                   → <code>/blog/any-slug</code>
                 </li>
                 <li>
-                  <code className="bg-white px-2 py-1 rounded">
+                  <code className="bg-white px-2 py-1 rounded-sm">
                     app/routes/projects.$id.tsx
                   </code>{' '}
                   → <code>/projects/123</code>
@@ -112,7 +112,7 @@ export default function Features() {
             </div>
           </div>
 
-          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-xs">
             <h3 className="text-2xl font-semibold mb-4 text-blue-700">
               ネストルート
             </h3>
@@ -120,7 +120,7 @@ export default function Features() {
               親子関係のあるルートを定義し、共通レイアウトやデータを共有できます。
               このサイトでも、ナビゲーションとフッターを共通レイアウトとして使用しています。
             </p>
-            <div className="bg-gray-50 p-4 rounded border border-gray-200">
+            <div className="bg-gray-50 p-4 rounded-sm border border-gray-200">
               <h4 className="font-semibold mb-2 text-sm text-gray-600">
                 メリット：
               </h4>
@@ -139,7 +139,7 @@ export default function Features() {
         <h2 className="text-3xl font-semibold mb-6">パフォーマンス機能</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg">
+          <div className="bg-linear-to-br from-blue-50 to-blue-100 p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-3 text-blue-800">
               リソースプリフェッチ
             </h3>
@@ -149,7 +149,7 @@ export default function Features() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg">
+          <div className="bg-linear-to-br from-blue-50 to-blue-100 p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-3 text-blue-800">
               並列データフェッチ
             </h3>
@@ -159,7 +159,7 @@ export default function Features() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg">
+          <div className="bg-linear-to-br from-blue-50 to-blue-100 p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-3 text-blue-800">
               自動コード分割
             </h3>
@@ -169,7 +169,7 @@ export default function Features() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg">
+          <div className="bg-linear-to-br from-blue-50 to-blue-100 p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-3 text-blue-800">
               最適化されたキャッシュ
             </h3>
@@ -185,7 +185,7 @@ export default function Features() {
 
         <div className="space-y-4">
           <div className="flex items-start">
-            <div className="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 font-bold">
+            <div className="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4 shrink-0 font-bold">
               1
             </div>
             <div>
@@ -199,7 +199,7 @@ export default function Features() {
           </div>
 
           <div className="flex items-start">
-            <div className="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 font-bold">
+            <div className="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4 shrink-0 font-bold">
               2
             </div>
             <div>
@@ -213,7 +213,7 @@ export default function Features() {
           </div>
 
           <div className="flex items-start">
-            <div className="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 font-bold">
+            <div className="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4 shrink-0 font-bold">
               3
             </div>
             <div>
@@ -227,7 +227,7 @@ export default function Features() {
           </div>
 
           <div className="flex items-start">
-            <div className="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 font-bold">
+            <div className="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4 shrink-0 font-bold">
               4
             </div>
             <div>
@@ -240,20 +240,20 @@ export default function Features() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8 rounded-lg">
+      <section className="bg-linear-to-r from-blue-600 to-blue-700 text-white p-8 rounded-lg">
         <h2 className="text-3xl font-semibold mb-4">エラーハンドリング</h2>
         <p className="text-lg mb-6 opacity-90">
           Remixは、エラーバウンダリーとCatchバウンダリーにより、
           堅牢なエラーハンドリングを実現します。
         </p>
         <div className="grid md:grid-cols-2 gap-4">
-          <div className="bg-white bg-opacity-10 p-4 rounded">
+          <div className="bg-white/10 p-4 rounded-sm">
             <h3 className="font-semibold mb-2">ErrorBoundary</h3>
             <p className="text-sm opacity-90">
               予期しないエラーをキャッチし、ユーザーにフレンドリーなエラーページを表示。
             </p>
           </div>
-          <div className="bg-white bg-opacity-10 p-4 rounded">
+          <div className="bg-white/10 p-4 rounded-sm">
             <h3 className="font-semibold mb-2">ルートレベルの分離</h3>
             <p className="text-sm opacity-90">
               エラーが発生したルートのみを分離し、他のページへの影響を最小化。

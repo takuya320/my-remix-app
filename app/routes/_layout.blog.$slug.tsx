@@ -178,7 +178,7 @@ export default function BlogPost() {
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded"
+                  className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-sm"
                 >
                   {tag}
                 </span>
@@ -214,13 +214,15 @@ export default function BlogPost() {
             </h2>
             <p className="text-gray-700 mb-2">
               このページのURL:{' '}
-              <code className="bg-white px-2 py-1 rounded text-sm">
+              <code className="bg-white px-2 py-1 rounded-sm text-sm">
                 /blog/{post.slug}
               </code>
             </p>
             <p className="text-gray-700">
               URLの{' '}
-              <code className="bg-white px-2 py-1 rounded text-sm">$slug</code>{' '}
+              <code className="bg-white px-2 py-1 rounded-sm text-sm">
+                $slug
+              </code>{' '}
               部分は動的パラメータです。Remixは自動的にこの値を抽出し、Loaderに渡します。
               これにより、同じコンポーネントで異なるコンテンツを表示できます。
             </p>

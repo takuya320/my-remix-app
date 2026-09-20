@@ -16,7 +16,7 @@ export default function ReactVsRemix() {
     <div className="container mx-auto px-4 py-12 max-w-5xl">
       {/* Title */}
       <div className="mb-12 text-center">
-        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+        <h1 className="text-5xl font-bold mb-4 bg-linear-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
           React vs Remix
         </h1>
         <p className="text-xl text-gray-600">
@@ -31,7 +31,7 @@ export default function ReactVsRemix() {
         </h2>
 
         <div className="space-y-6">
-          <div className="bg-gradient-to-r from-cyan-50 to-blue-50 p-6 rounded-lg">
+          <div className="bg-linear-to-r from-cyan-50 to-blue-50 p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-3 text-cyan-800">
               ドキュメントの目的
             </h3>
@@ -86,7 +86,7 @@ export default function ReactVsRemix() {
               React と Remix の簡単な紹介
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white border-2 border-cyan-300 rounded-lg p-6 shadow-sm">
+              <div className="bg-white border-2 border-cyan-300 rounded-lg p-6 shadow-xs">
                 <div className="flex items-center mb-3">
                   <div className="bg-cyan-500 text-white rounded-lg w-12 h-12 flex items-center justify-center text-xl font-bold mr-3">
                     R
@@ -103,7 +103,7 @@ export default function ReactVsRemix() {
                 </p>
               </div>
 
-              <div className="bg-white border-2 border-blue-600 rounded-lg p-6 shadow-sm">
+              <div className="bg-white border-2 border-blue-600 rounded-lg p-6 shadow-xs">
                 <div className="flex items-center mb-3">
                   <div className="bg-blue-600 text-white rounded-lg w-12 h-12 flex items-center justify-center text-xl font-bold mr-3">
                     R
@@ -229,7 +229,7 @@ export default function ReactVsRemix() {
               比較表：位置付け・理念の違い
             </h3>
             <div className="overflow-x-auto">
-              <table className="w-full border-collapse bg-white shadow-sm">
+              <table className="w-full border-collapse bg-white shadow-xs">
                 <thead>
                   <tr className="bg-gray-100">
                     <th className="border border-gray-300 px-4 py-3 text-left font-semibold">
@@ -348,7 +348,7 @@ export default function ReactVsRemix() {
                   <li>・クライアントサイドルーティング（SPA）が一般的</li>
                   <li>・ルーティング設計は完全に開発者に委ねられる</li>
                 </ul>
-                <div className="mt-3 p-2 bg-cyan-50 rounded text-xs text-cyan-800">
+                <div className="mt-3 p-2 bg-cyan-50 rounded-sm text-xs text-cyan-800">
                   💡 Reactは「ライブラリ」なのでルーティングは別途実装が必要
                 </div>
               </div>
@@ -369,7 +369,7 @@ export default function ReactVsRemix() {
                     ・各ルートでloader（データ取得）とaction（ミューテーション）を定義
                   </li>
                 </ul>
-                <div className="mt-3 p-2 bg-blue-50 rounded text-xs text-blue-800">
+                <div className="mt-3 p-2 bg-blue-50 rounded-sm text-xs text-blue-800">
                   💡 Remixはルーティングが組み込み済み、設定不要で使える
                 </div>
               </div>
@@ -407,7 +407,7 @@ export default function ReactVsRemix() {
                   <p className="mt-3">
                     <strong>パターン例:</strong>
                   </p>
-                  <pre className="bg-white p-3 rounded text-xs overflow-x-auto">
+                  <pre className="bg-white p-3 rounded-sm text-xs overflow-x-auto">
                     {`const [data, setData] = useState(null)
 useEffect(() => {
   fetch('/api/data')
@@ -442,7 +442,7 @@ useEffect(() => {
                   <p className="mt-3">
                     <strong>パターン例:</strong>
                   </p>
-                  <pre className="bg-white p-3 rounded text-xs overflow-x-auto">
+                  <pre className="bg-white p-3 rounded-sm text-xs overflow-x-auto">
                     {`export async function loader() {
   const data = await fetch('/api/data')
   return json(data)
@@ -464,7 +464,7 @@ export default function Component() {
               レンダリング戦略
             </h3>
             <div className="overflow-x-auto">
-              <table className="w-full border-collapse bg-white shadow-sm text-sm">
+              <table className="w-full border-collapse bg-white shadow-xs text-sm">
                 <thead>
                   <tr className="bg-gray-100">
                     <th className="border border-gray-300 px-3 py-2 text-left font-semibold">
@@ -592,7 +592,7 @@ export default function Component() {
                     Vercel、Netlify、Fly.io、Render等
                   </li>
                 </ul>
-                <div className="mt-3 p-2 bg-blue-50 rounded text-xs text-blue-800">
+                <div className="mt-3 p-2 bg-blue-50 rounded-sm text-xs text-blue-800">
                   💡 Remixはサーバー実行前提、Adapterで環境に適応
                 </div>
               </div>
@@ -756,7 +756,7 @@ export default function Component() {
               型安全／TypeScript サポート
             </h3>
             <div className="overflow-x-auto">
-              <table className="w-full border-collapse bg-white shadow-sm text-sm">
+              <table className="w-full border-collapse bg-white shadow-xs text-sm">
                 <thead>
                   <tr className="bg-gray-100">
                     <th className="border border-gray-300 px-3 py-2 text-left font-semibold">
@@ -891,7 +891,7 @@ export default function Component() {
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               JavaScriptバンドルサイズ・初期ロード・Time to Interactive
             </h3>
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-gray-300">
+            <div className="bg-linear-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-gray-300">
               <p className="text-sm text-gray-700 mb-4">
                 <strong>一般的な傾向:</strong>
               </p>
@@ -927,7 +927,7 @@ export default function Component() {
                   </ul>
                 </li>
               </ul>
-              <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm">
+              <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-sm text-sm">
                 <p className="font-semibold text-yellow-800 mb-1">
                   📊 比較ポイント
                 </p>
@@ -994,7 +994,7 @@ export default function Component() {
                     HTTP仕様に準拠した透明性の高いキャッシュ戦略
                   </li>
                 </ul>
-                <div className="mt-3 p-2 bg-blue-50 rounded text-xs text-blue-800">
+                <div className="mt-3 p-2 bg-blue-50 rounded-sm text-xs text-blue-800">
                   💡 RemixはHTTPキャッシュを積極活用、CDNとの親和性が高い
                 </div>
               </div>
@@ -1216,12 +1216,12 @@ export default function Component() {
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               判断基準チェックリスト
             </h3>
-            <div className="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-lg border-2 border-purple-300">
+            <div className="bg-linear-to-br from-purple-50 to-blue-50 p-6 rounded-lg border-2 border-purple-300">
               <p className="font-semibold mb-4 text-purple-900">
                 以下の質問に答えて、最適な選択をしましょう：
               </p>
               <div className="space-y-3 text-sm">
-                <div className="bg-white p-4 rounded shadow-sm">
+                <div className="bg-white p-4 rounded-sm shadow-xs">
                   <p className="font-semibold mb-2">
                     1. アプリケーションの性質は？
                   </p>
@@ -1232,7 +1232,7 @@ export default function Component() {
                   </p>
                 </div>
 
-                <div className="bg-white p-4 rounded shadow-sm">
+                <div className="bg-white p-4 rounded-sm shadow-xs">
                   <p className="font-semibold mb-2">
                     2. サーバーサイドレンダリング（SSR）が必要か？
                   </p>
@@ -1243,7 +1243,7 @@ export default function Component() {
                   </p>
                 </div>
 
-                <div className="bg-white p-4 rounded shadow-sm">
+                <div className="bg-white p-4 rounded-sm shadow-xs">
                   <p className="font-semibold mb-2">
                     3. フレームワークの構造は必要か？
                   </p>
@@ -1254,7 +1254,7 @@ export default function Component() {
                   </p>
                 </div>
 
-                <div className="bg-white p-4 rounded shadow-sm">
+                <div className="bg-white p-4 rounded-sm shadow-xs">
                   <p className="font-semibold mb-2">4. デプロイ環境は？</p>
                   <p className="text-gray-700">
                     → 静的ホスティングのみ
@@ -1263,7 +1263,7 @@ export default function Component() {
                   </p>
                 </div>
 
-                <div className="bg-white p-4 rounded shadow-sm">
+                <div className="bg-white p-4 rounded-sm shadow-xs">
                   <p className="font-semibold mb-2">
                     5. チームの経験レベルは？
                   </p>
@@ -1274,7 +1274,7 @@ export default function Component() {
                   </p>
                 </div>
 
-                <div className="bg-white p-4 rounded shadow-sm">
+                <div className="bg-white p-4 rounded-sm shadow-xs">
                   <p className="font-semibold mb-2">
                     6. ライブラリ選定の自由度は？
                   </p>
@@ -1471,7 +1471,7 @@ export default function Component() {
 
         <div className="space-y-8">
           {/* 総合まとめ */}
-          <div className="bg-gradient-to-br from-cyan-50 via-blue-50 to-purple-50 p-8 rounded-lg border-2 border-blue-300">
+          <div className="bg-linear-to-br from-cyan-50 via-blue-50 to-purple-50 p-8 rounded-lg border-2 border-blue-300">
             <h3 className="text-2xl font-semibold mb-4 text-blue-900">
               総合まとめ
             </h3>
@@ -1515,7 +1515,7 @@ export default function Component() {
               プロジェクト別簡易ガイド
             </h3>
             <div className="space-y-3">
-              <div className="bg-white border-l-4 border-cyan-600 p-4 shadow-sm">
+              <div className="bg-white border-l-4 border-cyan-600 p-4 shadow-xs">
                 <p className="font-semibold text-cyan-800 mb-1">
                   既存WebアプリへのUI追加
                 </p>
@@ -1525,7 +1525,7 @@ export default function Component() {
                 </p>
               </div>
 
-              <div className="bg-white border-l-4 border-cyan-600 p-4 shadow-sm">
+              <div className="bg-white border-l-4 border-cyan-600 p-4 shadow-xs">
                 <p className="font-semibold text-cyan-800 mb-1">
                   SPA（管理画面、ダッシュボード）
                 </p>
@@ -1534,7 +1534,7 @@ export default function Component() {
                 </p>
               </div>
 
-              <div className="bg-white border-l-4 border-cyan-600 p-4 shadow-sm">
+              <div className="bg-white border-l-4 border-cyan-600 p-4 shadow-xs">
                 <p className="font-semibold text-cyan-800 mb-1">
                   モバイルアプリ（iOS/Android）
                 </p>
@@ -1543,7 +1543,7 @@ export default function Component() {
                 </p>
               </div>
 
-              <div className="bg-white border-l-4 border-blue-600 p-4 shadow-sm">
+              <div className="bg-white border-l-4 border-blue-600 p-4 shadow-xs">
                 <p className="font-semibold text-blue-800 mb-1">
                   フルスタックWebアプリ（SaaS、Webサービス）
                 </p>
@@ -1552,7 +1552,7 @@ export default function Component() {
                 </p>
               </div>
 
-              <div className="bg-white border-l-4 border-blue-600 p-4 shadow-sm">
+              <div className="bg-white border-l-4 border-blue-600 p-4 shadow-xs">
                 <p className="font-semibold text-blue-800 mb-1">
                   SEO重視のWebサイト
                 </p>
@@ -1561,7 +1561,7 @@ export default function Component() {
                 </p>
               </div>
 
-              <div className="bg-white border-l-4 border-blue-600 p-4 shadow-sm">
+              <div className="bg-white border-l-4 border-blue-600 p-4 shadow-xs">
                 <p className="font-semibold text-blue-800 mb-1">
                   フォーム処理が多いアプリ
                 </p>
@@ -1571,7 +1571,7 @@ export default function Component() {
                 </p>
               </div>
 
-              <div className="bg-white border-l-4 border-purple-600 p-4 shadow-sm">
+              <div className="bg-white border-l-4 border-purple-600 p-4 shadow-xs">
                 <p className="font-semibold text-purple-800 mb-1">
                   React学習・プロトタイピング
                 </p>
@@ -1580,7 +1580,7 @@ export default function Component() {
                 </p>
               </div>
 
-              <div className="bg-white border-l-4 border-purple-600 p-4 shadow-sm">
+              <div className="bg-white border-l-4 border-purple-600 p-4 shadow-xs">
                 <p className="font-semibold text-purple-800 mb-1">
                   複雑なカスタムアーキテクチャ
                 </p>
@@ -1650,7 +1650,7 @@ export default function Component() {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-r from-purple-100 to-blue-100 p-5 rounded-lg">
+              <div className="bg-linear-to-r from-purple-100 to-blue-100 p-5 rounded-lg">
                 <h4 className="font-bold mb-2 text-purple-900">
                   共通のトレンド
                 </h4>
@@ -1680,7 +1680,7 @@ export default function Component() {
           </div>
 
           {/* 最終推奨 */}
-          <div className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white p-8 rounded-lg shadow-lg">
+          <div className="bg-linear-to-r from-cyan-600 to-blue-600 text-white p-8 rounded-lg shadow-lg">
             <h3 className="text-2xl font-bold mb-4">最終推奨</h3>
             <div className="space-y-3 text-sm leading-relaxed">
               <p>
@@ -1701,7 +1701,7 @@ export default function Component() {
                 ✅ <strong>迷ったら:</strong>{' '}
                 React基礎を学んでから、必要に応じてRemix等のフレームワークを検討
               </p>
-              <p className="mt-4 pt-4 border-t border-white border-opacity-30">
+              <p className="mt-4 pt-4 border-t border-white/30">
                 ReactとRemixは対立するものではなく、
                 <strong>
                   Reactはライブラリ、RemixはReactベースのフレームワーク

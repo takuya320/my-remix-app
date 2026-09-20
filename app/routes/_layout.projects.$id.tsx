@@ -275,7 +275,7 @@ export default function ProjectDetail() {
         </Link>
 
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-12 text-center">
+          <div className="bg-linear-to-br from-blue-500 to-blue-600 p-12 text-center">
             <div className="text-8xl mb-4">{project.image}</div>
             <h1 className="text-4xl font-bold text-white mb-2">
               {project.name}
@@ -368,13 +368,15 @@ export default function ProjectDetail() {
               </h2>
               <p className="text-gray-700 mb-2">
                 このページのURL:{' '}
-                <code className="bg-white px-2 py-1 rounded text-sm">
+                <code className="bg-white px-2 py-1 rounded-sm text-sm">
                   /projects/{project.id}
                 </code>
               </p>
               <p className="text-gray-700">
                 URLの{' '}
-                <code className="bg-white px-2 py-1 rounded text-sm">$id</code>{' '}
+                <code className="bg-white px-2 py-1 rounded-sm text-sm">
+                  $id
+                </code>{' '}
                 部分は動的パラメータです。Remixは自動的にこの値を抽出し、Loaderに渡します。
                 LoaderはこのIDを使用してデータベースから該当するプロジェクトを取得し、
                 同じコンポーネントで異なるプロジェクトの詳細を表示できます。

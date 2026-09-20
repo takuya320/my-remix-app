@@ -16,7 +16,7 @@ export default function NextjsVsRemix() {
     <div className="container mx-auto px-4 py-12 max-w-5xl">
       {/* Title */}
       <div className="mb-12 text-center">
-        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        <h1 className="text-5xl font-bold mb-4 bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
           Next.js vs Remix
         </h1>
         <p className="text-xl text-gray-600">
@@ -31,7 +31,7 @@ export default function NextjsVsRemix() {
         </h2>
 
         <div className="space-y-6">
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg">
+          <div className="bg-linear-to-r from-blue-50 to-purple-50 p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-3 text-blue-800">
               ドキュメントの目的
             </h3>
@@ -85,7 +85,7 @@ export default function NextjsVsRemix() {
               フレームワーク簡単紹介
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white border-2 border-gray-800 rounded-lg p-6 shadow-sm">
+              <div className="bg-white border-2 border-gray-800 rounded-lg p-6 shadow-xs">
                 <div className="flex items-center mb-3">
                   <div className="bg-gray-900 text-white rounded-lg w-12 h-12 flex items-center justify-center text-xl font-bold mr-3">
                     ▲
@@ -102,7 +102,7 @@ export default function NextjsVsRemix() {
                 </p>
               </div>
 
-              <div className="bg-white border-2 border-blue-600 rounded-lg p-6 shadow-sm">
+              <div className="bg-white border-2 border-blue-600 rounded-lg p-6 shadow-xs">
                 <div className="flex items-center mb-3">
                   <div className="bg-blue-600 text-white rounded-lg w-12 h-12 flex items-center justify-center text-xl font-bold mr-3">
                     R
@@ -239,7 +239,7 @@ export default function NextjsVsRemix() {
               比較表：位置付け・理念の違い
             </h3>
             <div className="overflow-x-auto">
-              <table className="w-full border-collapse bg-white shadow-sm">
+              <table className="w-full border-collapse bg-white shadow-xs">
                 <thead>
                   <tr className="bg-gray-100">
                     <th className="border border-gray-300 px-4 py-3 text-left font-semibold">
@@ -369,7 +369,7 @@ export default function NextjsVsRemix() {
                   <li>・エラーバウンダリが各ルートレベルで機能</li>
                   <li>・URL変更時に必要なルートのみ再フェッチ（効率的）</li>
                 </ul>
-                <div className="mt-3 p-2 bg-blue-50 rounded text-xs text-blue-800">
+                <div className="mt-3 p-2 bg-blue-50 rounded-sm text-xs text-blue-800">
                   💡 Remixのネストルーティングは、React
                   Routerのコンセプトを発展させたもの
                 </div>
@@ -440,7 +440,7 @@ export default function NextjsVsRemix() {
                       ・HTTPヘッダー（Cache-Control等）で細かくキャッシュ制御
                     </li>
                   </ul>
-                  <div className="mt-3 p-2 bg-blue-100 rounded text-xs text-blue-800">
+                  <div className="mt-3 p-2 bg-blue-100 rounded-sm text-xs text-blue-800">
                     💡 RemixはWeb標準を重視し、fetch
                     APIとHTTPセマンティクスに忠実
                   </div>
@@ -455,7 +455,7 @@ export default function NextjsVsRemix() {
               レンダリング戦略
             </h3>
             <div className="overflow-x-auto">
-              <table className="w-full border-collapse bg-white shadow-sm text-sm">
+              <table className="w-full border-collapse bg-white shadow-xs text-sm">
                 <thead>
                   <tr className="bg-gray-100">
                     <th className="border border-gray-300 px-3 py-2 text-left font-semibold">
@@ -584,7 +584,7 @@ export default function NextjsVsRemix() {
                     主要ホスティングで利用可能
                   </li>
                 </ul>
-                <div className="mt-3 p-2 bg-blue-50 rounded text-xs text-blue-800">
+                <div className="mt-3 p-2 bg-blue-50 rounded-sm text-xs text-blue-800">
                   💡 Remixはランタイム非依存設計で柔軟性が高い
                 </div>
               </div>
@@ -723,7 +723,7 @@ export default function NextjsVsRemix() {
               型安全／TypeScript サポート
             </h3>
             <div className="overflow-x-auto">
-              <table className="w-full border-collapse bg-white shadow-sm text-sm">
+              <table className="w-full border-collapse bg-white shadow-xs text-sm">
                 <thead>
                   <tr className="bg-gray-100">
                     <th className="border border-gray-300 px-3 py-2 text-left font-semibold">
@@ -848,7 +848,7 @@ export default function NextjsVsRemix() {
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               JavaScriptバンドルサイズ・初期ロード・Time to Interactive
             </h3>
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-gray-300">
+            <div className="bg-linear-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-gray-300">
               <p className="text-sm text-gray-700 mb-4">
                 <strong>一般的な傾向（プロジェクト内容に依存）:</strong>
               </p>
@@ -887,7 +887,7 @@ export default function NextjsVsRemix() {
                   </ul>
                 </li>
               </ul>
-              <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm">
+              <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-sm text-sm">
                 <p className="font-semibold text-yellow-800 mb-1">
                   📊 ベンチマーク参考
                 </p>
@@ -949,7 +949,7 @@ export default function NextjsVsRemix() {
                     ルート毎に異なるキャッシュ戦略を柔軟に設定可能
                   </li>
                 </ul>
-                <div className="mt-3 p-2 bg-blue-50 rounded text-xs text-blue-800">
+                <div className="mt-3 p-2 bg-blue-50 rounded-sm text-xs text-blue-800">
                   💡
                   RemixはWeb標準のHTTPキャッシュ戦略を使用し、CDN・プロキシとの親和性が高い
                 </div>
@@ -1168,12 +1168,12 @@ export default function NextjsVsRemix() {
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               判断基準チェックリスト
             </h3>
-            <div className="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-lg border-2 border-purple-300">
+            <div className="bg-linear-to-br from-purple-50 to-blue-50 p-6 rounded-lg border-2 border-purple-300">
               <p className="font-semibold mb-4 text-purple-900">
                 以下の質問に答えて、最適なフレームワークを選択しましょう：
               </p>
               <div className="space-y-3 text-sm">
-                <div className="bg-white p-4 rounded shadow-sm">
+                <div className="bg-white p-4 rounded-sm shadow-xs">
                   <p className="font-semibold mb-2">
                     1. プロジェクトの主な性質は？
                   </p>
@@ -1184,7 +1184,7 @@ export default function NextjsVsRemix() {
                   </p>
                 </div>
 
-                <div className="bg-white p-4 rounded shadow-sm">
+                <div className="bg-white p-4 rounded-sm shadow-xs">
                   <p className="font-semibold mb-2">2. ホスティング環境は？</p>
                   <p className="text-gray-700">
                     → Vercel前提
@@ -1193,7 +1193,7 @@ export default function NextjsVsRemix() {
                   </p>
                 </div>
 
-                <div className="bg-white p-4 rounded shadow-sm">
+                <div className="bg-white p-4 rounded-sm shadow-xs">
                   <p className="font-semibold mb-2">
                     3. フォーム・ミューテーション処理の多さは？
                   </p>
@@ -1204,7 +1204,7 @@ export default function NextjsVsRemix() {
                   </p>
                 </div>
 
-                <div className="bg-white p-4 rounded shadow-sm">
+                <div className="bg-white p-4 rounded-sm shadow-xs">
                   <p className="font-semibold mb-2">
                     4. チームのWeb標準知識レベルは？
                   </p>
@@ -1215,7 +1215,7 @@ export default function NextjsVsRemix() {
                   </p>
                 </div>
 
-                <div className="bg-white p-4 rounded shadow-sm">
+                <div className="bg-white p-4 rounded-sm shadow-xs">
                   <p className="font-semibold mb-2">
                     5. エコシステム・プラグインの豊富さの重要度は？
                   </p>
@@ -1226,7 +1226,7 @@ export default function NextjsVsRemix() {
                   </p>
                 </div>
 
-                <div className="bg-white p-4 rounded shadow-sm">
+                <div className="bg-white p-4 rounded-sm shadow-xs">
                   <p className="font-semibold mb-2">
                     6. ベンダーロックインへの懸念は？
                   </p>
@@ -1417,7 +1417,7 @@ export default function NextjsVsRemix() {
 
         <div className="space-y-8">
           {/* 総合まとめ */}
-          <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 p-8 rounded-lg border-2 border-purple-300">
+          <div className="bg-linear-to-br from-blue-50 via-purple-50 to-pink-50 p-8 rounded-lg border-2 border-purple-300">
             <h3 className="text-2xl font-semibold mb-4 text-purple-900">
               総合まとめ
             </h3>
@@ -1459,7 +1459,7 @@ export default function NextjsVsRemix() {
               プロジェクト別簡易ガイド
             </h3>
             <div className="space-y-3">
-              <div className="bg-white border-l-4 border-gray-600 p-4 shadow-sm">
+              <div className="bg-white border-l-4 border-gray-600 p-4 shadow-xs">
                 <p className="font-semibold text-gray-800 mb-1">
                   ブログ・マーケティングサイト
                 </p>
@@ -1468,7 +1468,7 @@ export default function NextjsVsRemix() {
                 </p>
               </div>
 
-              <div className="bg-white border-l-4 border-gray-600 p-4 shadow-sm">
+              <div className="bg-white border-l-4 border-gray-600 p-4 shadow-xs">
                 <p className="font-semibold text-gray-800 mb-1">
                   Eコマースサイト
                 </p>
@@ -1478,7 +1478,7 @@ export default function NextjsVsRemix() {
                 </p>
               </div>
 
-              <div className="bg-white border-l-4 border-blue-600 p-4 shadow-sm">
+              <div className="bg-white border-l-4 border-blue-600 p-4 shadow-xs">
                 <p className="font-semibold text-blue-800 mb-1">
                   SaaSダッシュボード・管理画面
                 </p>
@@ -1488,7 +1488,7 @@ export default function NextjsVsRemix() {
                 </p>
               </div>
 
-              <div className="bg-white border-l-4 border-blue-600 p-4 shadow-sm">
+              <div className="bg-white border-l-4 border-blue-600 p-4 shadow-xs">
                 <p className="font-semibold text-blue-800 mb-1">
                   動的Webアプリケーション
                 </p>
@@ -1497,7 +1497,7 @@ export default function NextjsVsRemix() {
                 </p>
               </div>
 
-              <div className="bg-white border-l-4 border-purple-600 p-4 shadow-sm">
+              <div className="bg-white border-l-4 border-purple-600 p-4 shadow-xs">
                 <p className="font-semibold text-purple-800 mb-1">
                   大規模エンタープライズアプリ
                 </p>
@@ -1507,7 +1507,7 @@ export default function NextjsVsRemix() {
                 </p>
               </div>
 
-              <div className="bg-white border-l-4 border-gray-600 p-4 shadow-sm">
+              <div className="bg-white border-l-4 border-gray-600 p-4 shadow-xs">
                 <p className="font-semibold text-gray-800 mb-1">
                   静的コンテンツ + 一部動的機能
                 </p>
@@ -1516,7 +1516,7 @@ export default function NextjsVsRemix() {
                 </p>
               </div>
 
-              <div className="bg-white border-l-4 border-blue-600 p-4 shadow-sm">
+              <div className="bg-white border-l-4 border-blue-600 p-4 shadow-xs">
                 <p className="font-semibold text-blue-800 mb-1">
                   エッジコンピューティング活用
                 </p>
@@ -1591,7 +1591,7 @@ export default function NextjsVsRemix() {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-r from-purple-100 to-blue-100 p-5 rounded-lg">
+              <div className="bg-linear-to-r from-purple-100 to-blue-100 p-5 rounded-lg">
                 <h4 className="font-bold mb-2 text-purple-900">
                   共通のトレンド
                 </h4>
@@ -1622,7 +1622,7 @@ export default function NextjsVsRemix() {
           </div>
 
           {/* 最終推奨 */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg shadow-lg">
+          <div className="bg-linear-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg shadow-lg">
             <h3 className="text-2xl font-bold mb-4">最終推奨</h3>
             <div className="space-y-3 text-sm leading-relaxed">
               <p>
@@ -1643,7 +1643,7 @@ export default function NextjsVsRemix() {
                 ✅ <strong>どちらも試してみる</strong>:{' '}
                 小規模プロトタイプを両方で作成し、チームにフィットする方を選択
               </p>
-              <p className="mt-4 pt-4 border-t border-white border-opacity-30">
+              <p className="mt-4 pt-4 border-t border-white/30">
                 どちらのフレームワークも優秀で、適切に使えば高品質なWebアプリケーションを構築できます。
                 プロジェクトの要件とチームの状況を慎重に評価し、最適な選択をしましょう。
               </p>

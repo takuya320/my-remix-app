@@ -15,7 +15,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="font-sans">
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-16">
+      <div className="bg-linear-to-r from-blue-600 to-blue-700 text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Remixとは？</h1>
           <p className="text-xl md:text-2xl opacity-90">
@@ -77,7 +77,7 @@ export default function Index() {
           <div className="bg-blue-50 p-8 rounded-lg">
             <ol className="space-y-4">
               <li className="flex items-start">
-                <span className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 font-semibold">
+                <span className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 shrink-0 font-semibold">
                   1
                 </span>
                 <div>
@@ -90,7 +90,7 @@ export default function Index() {
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 font-semibold">
+                <span className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 shrink-0 font-semibold">
                   2
                 </span>
                 <div>
@@ -103,7 +103,7 @@ export default function Index() {
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 font-semibold">
+                <span className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 shrink-0 font-semibold">
                   3
                 </span>
                 <div>
@@ -116,7 +116,7 @@ export default function Index() {
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 font-semibold">
+                <span className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 shrink-0 font-semibold">
                   4
                 </span>
                 <div>
@@ -129,7 +129,7 @@ export default function Index() {
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 font-semibold">
+                <span className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 shrink-0 font-semibold">
                   5
                 </span>
                 <div>
@@ -145,7 +145,7 @@ export default function Index() {
           </div>
         </section>
 
-        <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8 rounded-lg">
+        <section className="bg-linear-to-r from-blue-600 to-blue-700 text-white p-8 rounded-lg">
           <h2 className="text-3xl font-semibold mb-4">まとめ</h2>
           <p className="text-lg leading-relaxed mb-6">
             Remixは、現代のウェブ開発の課題に対応するために設計された強力なフレームワークです。SPAの利点を維持しつつ、従来のウェブアプリケーションの優れた特性を組み合わせることで、開発者とユーザーの両方に優れた体験を提供します。
