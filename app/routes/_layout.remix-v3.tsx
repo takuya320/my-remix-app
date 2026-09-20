@@ -16,7 +16,7 @@ export default function RemixV3() {
     <div className="container mx-auto px-4 py-12 max-w-5xl">
       {/* Title */}
       <div className="mb-12 text-center">
-        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">
+        <h1 className="text-5xl font-bold mb-4 bg-linear-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">
           Remix v3
         </h1>
         <p className="text-xl text-gray-600">
@@ -27,7 +27,7 @@ export default function RemixV3() {
 
       {/* 0. 要約 */}
       <section className="mb-16">
-        <div className="bg-gradient-to-r from-violet-50 to-fuchsia-50 border-l-4 border-violet-500 p-6 rounded-r-lg">
+        <div className="bg-linear-to-r from-violet-50 to-fuchsia-50 border-l-4 border-violet-500 p-6 rounded-r-lg">
           <h2 className="text-2xl font-bold mb-3 text-violet-800">結論</h2>
           <p className="text-gray-700 leading-relaxed">
             Remix 3 は v2 の続編ではなく、
@@ -47,7 +47,7 @@ export default function RemixV3() {
 
         <div className="space-y-6">
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse bg-white shadow-sm">
+            <table className="w-full border-collapse bg-white shadow-xs">
               <thead>
                 <tr className="bg-gray-100">
                   <th className="border border-gray-300 px-4 py-3 text-left font-semibold">
@@ -104,13 +104,13 @@ export default function RemixV3() {
             <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
               <ul className="space-y-3 text-gray-700 text-sm">
                 <li className="flex items-start">
-                  <span className="bg-violet-100 text-violet-800 font-mono text-xs px-2 py-1 rounded mr-3 whitespace-nowrap">
+                  <span className="bg-violet-100 text-violet-800 font-mono text-xs px-2 py-1 rounded-sm mr-3 whitespace-nowrap">
                     2026-01-26
                   </span>
                   <span>alpha.1 公開</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="bg-violet-100 text-violet-800 font-mono text-xs px-2 py-1 rounded mr-3 whitespace-nowrap">
+                  <span className="bg-violet-100 text-violet-800 font-mono text-xs px-2 py-1 rounded-sm mr-3 whitespace-nowrap">
                     2026-04-30
                   </span>
                   <span>
@@ -119,13 +119,13 @@ export default function RemixV3() {
                   </span>
                 </li>
                 <li className="flex items-start">
-                  <span className="bg-violet-100 text-violet-800 font-mono text-xs px-2 py-1 rounded mr-3 whitespace-nowrap">
+                  <span className="bg-violet-100 text-violet-800 font-mono text-xs px-2 py-1 rounded-sm mr-3 whitespace-nowrap">
                     2026-08-31
                   </span>
                   <span>rc.1 公開 — beta 以降「350以上のコミット」</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="bg-fuchsia-100 text-fuchsia-800 font-mono text-xs px-2 py-1 rounded mr-3 whitespace-nowrap">
+                  <span className="bg-fuchsia-100 text-fuchsia-800 font-mono text-xs px-2 py-1 rounded-sm mr-3 whitespace-nowrap">
                     2026-10-02
                   </span>
                   <span>
@@ -163,7 +163,7 @@ export default function RemixV3() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white border-2 border-violet-300 rounded-lg p-6 shadow-sm">
+            <div className="bg-white border-2 border-violet-300 rounded-lg p-6 shadow-xs">
               <h4 className="text-lg font-bold mb-3 text-violet-700">
                 UI・レンダリング
               </h4>
@@ -179,7 +179,7 @@ export default function RemixV3() {
               </ul>
             </div>
 
-            <div className="bg-white border-2 border-fuchsia-300 rounded-lg p-6 shadow-sm">
+            <div className="bg-white border-2 border-fuchsia-300 rounded-lg p-6 shadow-xs">
               <h4 className="text-lg font-bold mb-3 text-fuchsia-700">
                 サーバー・データ
               </h4>
@@ -227,7 +227,7 @@ export default function RemixV3() {
                 <p>
                   <strong>宣言的・フック駆動:</strong>
                 </p>
-                <pre className="bg-white p-3 rounded text-xs overflow-x-auto">
+                <pre className="bg-white p-3 rounded-sm text-xs overflow-x-auto">
                   {`function Counter() {
   const [count, setCount] = useState(0)
   const inc = () => setCount(count + 1)
@@ -254,7 +254,7 @@ export default function RemixV3() {
                 <p>
                   <strong>命令的・クロージャ駆動:</strong>
                 </p>
-                <pre className="bg-white p-3 rounded text-xs overflow-x-auto">
+                <pre className="bg-white p-3 rounded-sm text-xs overflow-x-auto">
                   {`function Counter(handle: Handle) {
   let count = 0
   const inc = () => {
@@ -325,7 +325,7 @@ export default function RemixV3() {
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse bg-white shadow-sm text-sm">
+            <table className="w-full border-collapse bg-white shadow-xs text-sm">
               <thead>
                 <tr className="bg-gray-100">
                   <th className="border border-gray-300 px-3 py-2 text-left font-semibold">
@@ -490,7 +490,7 @@ export default function RemixV3() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-violet-50 to-fuchsia-50 p-6 rounded-lg border-l-4 border-violet-500">
+        <div className="bg-linear-to-r from-violet-50 to-fuchsia-50 p-6 rounded-lg border-l-4 border-violet-500">
           <h3 className="text-xl font-semibold mb-3 text-violet-800">
             推奨スタンス
           </h3>

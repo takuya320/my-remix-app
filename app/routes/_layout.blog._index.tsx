@@ -91,13 +91,13 @@ export default function Blog() {
           <Link
             key={post.slug}
             to={`/blog/${post.slug}`}
-            className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow hover:border-blue-300"
+            className="bg-white border border-gray-200 rounded-lg p-6 shadow-xs hover:shadow-md transition-shadow hover:border-blue-300"
           >
             <div className="flex flex-wrap gap-2 mb-3">
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded"
+                  className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-sm"
                 >
                   {tag}
                 </span>
@@ -127,7 +127,7 @@ export default function Blog() {
         <p className="text-gray-700 mb-3">
           このブログページは、Remixの動的ルーティング機能を示しています。
           各記事は{' '}
-          <code className="bg-white px-2 py-1 rounded">/blog/$slug</code>{' '}
+          <code className="bg-white px-2 py-1 rounded-sm">/blog/$slug</code>{' '}
           パターンでアクセスできます。
         </p>
         <p className="text-gray-700">

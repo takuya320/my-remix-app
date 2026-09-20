@@ -122,9 +122,9 @@ export default function Projects() {
           <Link
             key={project.id}
             to={`/projects/${project.id}`}
-            className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow hover:border-blue-300"
+            className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-xs hover:shadow-md transition-shadow hover:border-blue-300"
           >
-            <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-8 text-center">
+            <div className="bg-linear-to-br from-blue-500 to-blue-600 p-8 text-center">
               <div className="text-6xl mb-2">{project.image}</div>
             </div>
 
@@ -152,13 +152,13 @@ export default function Projects() {
                 {project.techStack.slice(0, 3).map((tech) => (
                   <span
                     key={tech}
-                    className="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded"
+                    className="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded-sm"
                   >
                     {tech}
                   </span>
                 ))}
                 {project.techStack.length > 3 && (
-                  <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
+                  <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-sm">
                     +{project.techStack.length - 3}
                   </span>
                 )}
@@ -179,14 +179,14 @@ export default function Projects() {
         <p className="text-gray-700 mb-3">
           このプロジェクト一覧ページは、Remixの動的ルーティング機能を示しています。
           各プロジェクトは{' '}
-          <code className="bg-white px-2 py-1 rounded">/projects/$id</code>{' '}
+          <code className="bg-white px-2 py-1 rounded-sm">/projects/$id</code>{' '}
           パターンでアクセスできます。
         </p>
         <p className="text-gray-700 mb-4">
           プロジェクトカードをクリックすると、IDを使用して動的に生成されたページに遷移します。
           これにより、1つのコンポーネントで複数のプロジェクト詳細ページを処理できます。
         </p>
-        <div className="bg-white p-4 rounded border border-blue-300">
+        <div className="bg-white p-4 rounded-sm border border-blue-300">
           <h3 className="font-semibold mb-2 text-sm text-gray-700">
             ルーティング構造：
           </h3>

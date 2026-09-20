@@ -28,7 +28,7 @@ export default function TechStack() {
         <h2 className="text-3xl font-semibold mb-6">コア技術</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white border-2 border-blue-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-white border-2 border-blue-200 rounded-lg p-6 shadow-xs hover:shadow-md transition-shadow">
             <div className="flex items-center mb-4">
               <div className="bg-blue-600 text-white rounded-lg w-12 h-12 flex items-center justify-center text-xl font-bold mr-4">
                 R
@@ -47,19 +47,19 @@ export default function TechStack() {
               v2の機能を引き継いだフルスタックReactフレームワーク。サーバーサイドレンダリング、ファイルベースルーティング、効率的なデータローディングを提供。
             </p>
             <div className="flex flex-wrap gap-2">
-              <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
+              <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-sm">
                 SSR
               </span>
-              <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
+              <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-sm">
                 ルーティング
               </span>
-              <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
+              <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-sm">
                 データローディング
               </span>
             </div>
           </div>
 
-          <div className="bg-white border-2 border-cyan-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-white border-2 border-cyan-200 rounded-lg p-6 shadow-xs hover:shadow-md transition-shadow">
             <div className="flex items-center mb-4">
               <div className="bg-cyan-500 text-white rounded-lg w-12 h-12 flex items-center justify-center text-xl font-bold mr-4">
                 R
@@ -73,19 +73,19 @@ export default function TechStack() {
               UIライブラリ。コンポーネントベースの開発により、再利用可能で保守しやすいインターフェースを構築。
             </p>
             <div className="flex flex-wrap gap-2">
-              <span className="bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded">
+              <span className="bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded-sm">
                 コンポーネント
               </span>
-              <span className="bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded">
+              <span className="bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded-sm">
                 Hooks
               </span>
-              <span className="bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded">
+              <span className="bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded-sm">
                 宣言的UI
               </span>
             </div>
           </div>
 
-          <div className="bg-white border-2 border-blue-400 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-white border-2 border-blue-400 rounded-lg p-6 shadow-xs hover:shadow-md transition-shadow">
             <div className="flex items-center mb-4">
               <div className="bg-blue-500 text-white rounded-lg w-12 h-12 flex items-center justify-center text-xl font-bold mr-4">
                 TS
@@ -101,19 +101,19 @@ export default function TechStack() {
               型安全な開発言語。コンパイル時の型チェックにより、バグを早期発見し、保守性を向上。
             </p>
             <div className="flex flex-wrap gap-2">
-              <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
+              <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-sm">
                 型安全
               </span>
-              <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
+              <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-sm">
                 IntelliSense
               </span>
-              <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
+              <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-sm">
                 リファクタリング
               </span>
             </div>
           </div>
 
-          <div className="bg-white border-2 border-teal-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-white border-2 border-teal-200 rounded-lg p-6 shadow-xs hover:shadow-md transition-shadow">
             <div className="flex items-center mb-4">
               <div className="bg-teal-500 text-white rounded-lg w-12 h-12 flex items-center justify-center text-xl font-bold mr-4">
                 TW
@@ -129,13 +129,13 @@ export default function TechStack() {
               ユーティリティファーストCSSフレームワーク。迅速なスタイリングと一貫したデザインシステムを実現。
             </p>
             <div className="flex flex-wrap gap-2">
-              <span className="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded">
+              <span className="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded-sm">
                 ユーティリティ
               </span>
-              <span className="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded">
+              <span className="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded-sm">
                 レスポンシブ
               </span>
-              <span className="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded">
+              <span className="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded-sm">
                 カスタマイズ
               </span>
             </div>
@@ -147,7 +147,7 @@ export default function TechStack() {
         <h2 className="text-3xl font-semibold mb-6">ビルドツール</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-lg">
+          <div className="bg-linear-to-br from-purple-50 to-purple-100 p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-3 text-purple-800">Vite</h3>
             <p className="text-gray-700 mb-3">
               次世代フロントエンドビルドツール。高速な開発サーバーとビルドを提供。
@@ -160,7 +160,7 @@ export default function TechStack() {
             </ul>
           </div>
 
-          <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-lg">
+          <div className="bg-linear-to-br from-yellow-50 to-yellow-100 p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-3 text-yellow-800">pnpm</h3>
             <p className="text-gray-700 mb-3">
               高速で効率的なパッケージマネージャー。ディスク容量を節約し、インストール速度を向上。
@@ -179,7 +179,7 @@ export default function TechStack() {
 
         <div className="space-y-4">
           <div className="bg-white border border-gray-200 rounded-lg p-5 flex items-start">
-            <div className="bg-gray-100 rounded-lg w-10 h-10 flex items-center justify-center text-xl mr-4 flex-shrink-0">
+            <div className="bg-gray-100 rounded-lg w-10 h-10 flex items-center justify-center text-xl mr-4 shrink-0">
               🎨
             </div>
             <div>
@@ -191,7 +191,7 @@ export default function TechStack() {
           </div>
 
           <div className="bg-white border border-gray-200 rounded-lg p-5 flex items-start">
-            <div className="bg-gray-100 rounded-lg w-10 h-10 flex items-center justify-center text-xl mr-4 flex-shrink-0">
+            <div className="bg-gray-100 rounded-lg w-10 h-10 flex items-center justify-center text-xl mr-4 shrink-0">
               🔧
             </div>
             <div>
@@ -204,7 +204,7 @@ export default function TechStack() {
           </div>
 
           <div className="bg-white border border-gray-200 rounded-lg p-5 flex items-start">
-            <div className="bg-gray-100 rounded-lg w-10 h-10 flex items-center justify-center text-xl mr-4 flex-shrink-0">
+            <div className="bg-gray-100 rounded-lg w-10 h-10 flex items-center justify-center text-xl mr-4 shrink-0">
               📦
             </div>
             <div>
@@ -221,7 +221,7 @@ export default function TechStack() {
       <section className="mb-12">
         <h2 className="text-3xl font-semibold mb-6">デプロイメント</h2>
 
-        <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white p-8 rounded-lg">
+        <div className="bg-linear-to-r from-gray-800 to-gray-900 text-white p-8 rounded-lg">
           <div className="flex items-center mb-4">
             <div className="bg-white text-gray-900 rounded-lg w-12 h-12 flex items-center justify-center text-xl font-bold mr-4">
               ▲
@@ -237,25 +237,25 @@ export default function TechStack() {
             このサイトはVercelにデプロイされています。GitHubとの連携により、プッシュ時に自動デプロイ。
           </p>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-white bg-opacity-10 p-3 rounded">
+            <div className="bg-white/10 p-3 rounded-sm">
               <h4 className="font-semibold mb-1 text-sm">自動デプロイ</h4>
               <p className="text-xs text-gray-300">
                 mainブランチへのプッシュで自動的にデプロイ
               </p>
             </div>
-            <div className="bg-white bg-opacity-10 p-3 rounded">
+            <div className="bg-white/10 p-3 rounded-sm">
               <h4 className="font-semibold mb-1 text-sm">プレビュー環境</h4>
               <p className="text-xs text-gray-300">
                 プルリクエストごとにプレビューURL生成
               </p>
             </div>
-            <div className="bg-white bg-opacity-10 p-3 rounded">
+            <div className="bg-white/10 p-3 rounded-sm">
               <h4 className="font-semibold mb-1 text-sm">グローバルCDN</h4>
               <p className="text-xs text-gray-300">
                 世界中で高速なコンテンツ配信
               </p>
             </div>
-            <div className="bg-white bg-opacity-10 p-3 rounded">
+            <div className="bg-white/10 p-3 rounded-sm">
               <h4 className="font-semibold mb-1 text-sm">セキュリティ</h4>
               <p className="text-xs text-gray-300">
                 HTTPS、セキュリティヘッダーが自動設定
