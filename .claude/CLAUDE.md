@@ -97,10 +97,29 @@ route file if your editor reports missing types.
 
 1. Run `pnpm typecheck` - ensure no TypeScript errors
 2. Run `pnpm lint` - format code with Prettier
-3. Test changes in browser
-4. Write descriptive commit messages (English, conventional commits format)
+3. Run `pnpm exec eslint .` - ESLint is not wired into the npm scripts
+4. Test changes in browser
+5. Write descriptive commit messages (English, conventional commits format)
 
-Note: ESLint is configured but not included in the npm scripts. You can run it manually with `pnpm eslint .` if needed.
+### Self-Review (required before finishing a task or opening a PR)
+
+Automated checks only cover formatting, lint and types. Before you report a task
+as done, and before you run `gh pr create`, review your own diff:
+
+1. Run `/code-review` over the working-tree diff (or the branch, for a PR) and
+   resolve every finding — fix it, or state in the PR description why it is
+   acceptable. Do not skip this because the change "looks small".
+2. Re-read the diff yourself (`git diff`) with these questions in mind:
+   - Does the change stay inside the requested scope? No stray edits, no
+     leftover debug code, no commented-out blocks.
+   - Are error paths handled, and do loaders/actions fail with a clear message?
+   - Is UI text in Japanese and are code/comments in English?
+   - Does anything here belong in a loader/action rather than a component?
+3. Run `/security-review` as well when the change touches sessions, form input,
+   environment variables, or anything user-supplied.
+
+CI (`.github/workflows/test.yml`) runs Prettier `--check`, ESLint and
+`pnpm typecheck` on every pull request. A green CI is the floor, not the review.
 
 ## TypeScript Guidelines
 
@@ -329,7 +348,7 @@ the same time.
   own `ErrorBoundary`, but `app/root.tsx` does not
 - No testing infrastructure set up
 - ESLint is configured but not integrated into npm scripts; run
-  `pnpm exec eslint .`
+  `pnpm exec eslint .` (CI runs it directly)
 - ESLint is on v9. v10 is blocked on eslint-plugin-react (peers up to ^9.7)
   and eslint-plugin-jsx-a11y (up to ^9), and CI installs with
   --strict-peer-dependencies
