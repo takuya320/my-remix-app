@@ -325,9 +325,14 @@ Covered today: the lookups in `app/utils/content.ts`, the `blog.$slug` and
 `projects.$id` loaders including their 404 paths, and the meta functions.
 
 Write tests that take their data as an argument, the way the lookups do, so
-editing a blog post does not break them. Nothing renders a component yet;
-adding Testing Library and a jsdom environment is the next step if component
-behaviour needs covering, and E2E (Playwright) after that.
+editing a blog post does not break them.
+
+A test that renders a component opts into jsdom with `// @vitest-environment
+jsdom` on its first line, rather than the whole suite paying for a DOM it does
+not use. Render through `createRoutesStub` from `react-router` when the
+component needs router context — the root `ErrorBoundary` reads
+`useRouteError()`, which is only populated by a router. No E2E layer yet;
+Playwright is the next step if one is needed.
 
 ## Deployment Notes
 
@@ -369,9 +374,6 @@ the same time.
 
 ## Known Issues / Technical Debt
 
-- Nothing renders a component under test. `app/root.tsx` exports an
-  `ErrorBoundary` that no test exercises, because the Vitest environment is
-  `node` with no Testing Library
 - ESLint is configured but not integrated into npm scripts; run
   `pnpm exec eslint .` (CI runs it directly)
 - ESLint is on v9. v10 is blocked on eslint-plugin-react (peers up to ^9.7)
