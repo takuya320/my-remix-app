@@ -1,63 +1,7 @@
 import type { MetaFunction } from 'react-router'
 import { Link, useLoaderData } from 'react-router'
 
-// サンプルブログデータ（実際のアプリではデータベースやCMSから取得）
-const blogPosts = [
-  {
-    slug: 'getting-started-with-remix',
-    title: 'Remixを始めよう',
-    excerpt:
-      'Remixフレームワークの基本的な使い方を学びます。セットアップから最初のページ作成まで。',
-    date: '2024-01-15',
-    author: 'Remix Team',
-    tags: ['入門', 'チュートリアル'],
-  },
-  {
-    slug: 'understanding-loaders',
-    title: 'Loaderを理解する',
-    excerpt:
-      'Remixの強力な機能であるLoaderについて深く掘り下げます。データフェッチのベストプラクティス。',
-    date: '2024-01-20',
-    author: 'Remix Team',
-    tags: ['Loader', 'データフェッチ'],
-  },
-  {
-    slug: 'form-handling-with-actions',
-    title: 'Actionでフォームを扱う',
-    excerpt:
-      'Remixのプログレッシブエンハンスメント機能を活用したフォーム処理の実装方法。',
-    date: '2024-01-25',
-    author: 'Remix Team',
-    tags: ['Action', 'フォーム'],
-  },
-  {
-    slug: 'optimizing-performance',
-    title: 'パフォーマンス最適化',
-    excerpt:
-      'Remixアプリケーションのパフォーマンスを向上させるテクニック集。リソースヒント、キャッシュ戦略など。',
-    date: '2024-02-01',
-    author: 'Remix Team',
-    tags: ['パフォーマンス', '最適化'],
-  },
-  {
-    slug: 'nested-routes-guide',
-    title: 'ネストルート完全ガイド',
-    excerpt:
-      'ネストルートの設計パターンと実装例。共通レイアウト、データの共有、エラーハンドリング。',
-    date: '2024-02-10',
-    author: 'Remix Team',
-    tags: ['ルーティング', 'ネストルート'],
-  },
-  {
-    slug: 'deployment-strategies',
-    title: 'デプロイメント戦略',
-    excerpt:
-      'Remixアプリケーションを様々なプラットフォームにデプロイする方法。Vercel、Fly.io、AWSなど。',
-    date: '2024-02-15',
-    author: 'Remix Team',
-    tags: ['デプロイ', 'インフラ'],
-  },
-]
+import { blogPosts } from '~/data/posts'
 
 export async function loader() {
   // 実際のアプリでは、検索やフィルタリングのクエリパラメータを処理
