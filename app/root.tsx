@@ -1,3 +1,4 @@
+import type { MetaFunction } from 'react-router'
 import {
   Links,
   Meta,
@@ -32,6 +33,24 @@ export default function App() {
   return <Outlet />
 }
 
+// Without this the error document has no <title> at all, because no child
+// route matched to contribute one, and the tab shows the raw URL.
+export const meta: MetaFunction = ({ error }) => {
+  if (!error) {
+    return []
+  }
+
+  const notFound = isRouteErrorResponse(error) && error.status === 404
+
+  return [
+    {
+      title: notFound
+        ? 'ページが見つかりません - Remix情報ページ'
+        : 'エラーが発生しました - Remix情報ページ',
+    },
+  ]
+}
+
 export function ErrorBoundary() {
   const error = useRouteError()
 
@@ -52,10 +71,10 @@ export function ErrorBoundary() {
 
   // Rejected rendering the thrown value: it can carry a stack trace or an
   // internal message, so the page stays generic and the detail goes to the
-  // server log. The browser already reports client-side errors itself.
-  if (typeof document === 'undefined') {
-    console.error(error)
-  }
+  // console instead. Rejected logging on the server only: an error thrown by a
+  // loader during a client-side navigation is caught in the browser and would
+  // leave no trace anywhere.
+  console.error(error)
 
   return (
     <ErrorPage

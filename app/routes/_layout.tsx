@@ -1,4 +1,6 @@
 import { Outlet } from 'react-router'
+
+import { currentYearInTokyo } from '~/utils/date'
 import Navigation from '~/components/Navigation'
 
 export default function Layout() {
@@ -14,7 +16,7 @@ export default function Layout() {
 
       <footer className="bg-gray-800 text-white py-6 mt-8">
         <div className="container mx-auto px-4 text-center">
-          <p>{`© ${new Date().getFullYear()} Remix情報ページ`}</p>
+          <p>{`© ${currentYearInTokyo()} Remix情報ページ`}</p>
           <p className="text-sm text-gray-400 mt-2">
             Built with React Router, React, and Tailwind CSS
           </p>
