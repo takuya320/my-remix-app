@@ -1,6 +1,5 @@
-import type { MetaFunction, LoaderFunctionArgs } from '@remix-run/node'
-import { Link, useLoaderData } from '@remix-run/react'
-import { json } from '@remix-run/node'
+import type { MetaFunction, LoaderFunctionArgs } from 'react-router'
+import { Link, useLoaderData } from 'react-router'
 
 // サンプルブログデータ（実際のアプリではデータベースやCMSから取得）
 const blogPosts = [
@@ -143,17 +142,20 @@ export async function loader({ params }: LoaderFunctionArgs) {
     throw new Response('Not Found', { status: 404 })
   }
 
-  return json({ post })
+  return { post }
 }
 
-export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  if (!data) {
+export const meta: MetaFunction<typeof loader> = ({ loaderData }) => {
+  if (!loaderData) {
     return [{ title: '記事が見つかりません' }]
   }
 
   return [
-    { title: `${data.post.title} - Remix情報ページ` },
-    { name: 'description', content: data.post.content.substring(0, 150) },
+    { title: `${loaderData.post.title} - Remix情報ページ` },
+    {
+      name: 'description',
+      content: loaderData.post.content.substring(0, 150),
+    },
   ]
 }
 

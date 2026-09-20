@@ -1,4 +1,4 @@
-import type { MetaFunction } from '@remix-run/node'
+import type { MetaFunction } from 'react-router'
 
 export const meta: MetaFunction = () => {
   return [
@@ -6,7 +6,7 @@ export const meta: MetaFunction = () => {
     {
       name: 'description',
       content:
-        'このサイトで使用している技術スタック。Remix、React、TypeScript、Tailwind CSS、pnpm、Viteなど。',
+        'このサイトで使用している技術スタック。React Router、React、TypeScript、Tailwind CSS、pnpm、Viteなど。',
     },
   ]
 }
@@ -19,9 +19,8 @@ export default function TechStack() {
       <div className="mb-12">
         <p className="text-lg text-gray-700 leading-relaxed">
           このサイトで使用している技術スタック、ツール、ライブラリを紹介します。
-          なお2026年9月時点で、ベースとしているRemix v2はEOL（React Router
-          v8のリリースに伴いセキュリティ更新も終了）となっており、React Router
-          v7/v8への移行が今後の課題です。
+          Remix v2がEOLとなったため、2026年9月にRemix v2からReact Router
+          v8へ移行しました。
         </p>
       </div>
 
@@ -35,14 +34,17 @@ export default function TechStack() {
                 R
               </div>
               <div>
-                <h3 className="text-2xl font-semibold text-blue-700">Remix</h3>
+                <h3 className="text-2xl font-semibold text-blue-700">
+                  React Router
+                </h3>
                 <p className="text-sm text-gray-600">
-                  Version 2 (Vite-based) / EOL
+                  Version 8 (Framework Mode)
                 </p>
               </div>
             </div>
             <p className="text-gray-700 mb-3">
-              フルスタックReactフレームワーク。サーバーサイドレンダリング、ファイルベースルーティング、効率的なデータローディングを提供。
+              Remix
+              v2の機能を引き継いだフルスタックReactフレームワーク。サーバーサイドレンダリング、ファイルベースルーティング、効率的なデータローディングを提供。
             </p>
             <div className="flex flex-wrap gap-2">
               <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
@@ -64,7 +66,7 @@ export default function TechStack() {
               </div>
               <div>
                 <h3 className="text-2xl font-semibold text-cyan-600">React</h3>
-                <p className="text-sm text-gray-600">Version 18</p>
+                <p className="text-sm text-gray-600">Version 19</p>
               </div>
             </div>
             <p className="text-gray-700 mb-3">
@@ -149,7 +151,7 @@ export default function TechStack() {
             <h3 className="text-xl font-semibold mb-3 text-purple-800">Vite</h3>
             <p className="text-gray-700 mb-3">
               次世代フロントエンドビルドツール。高速な開発サーバーとビルドを提供。
-              Remix v2ではViteベースのビルドがデフォルトになりました。
+              React RouterのFramework ModeはViteベースで動作します。
             </p>
             <ul className="space-y-1 text-sm text-gray-700">
               <li>✓ 高速なHMR（ホットモジュールリプレースメント）</li>
@@ -208,7 +210,8 @@ export default function TechStack() {
             <div>
               <h3 className="text-lg font-semibold mb-2">Node.js</h3>
               <p className="text-gray-700 text-sm">
-                ランタイム環境。バージョン22.0.0以上を使用。最新のJavaScript機能をサポート。
+                ランタイム環境。バージョン22.22.0以上を使用（React Router
+                v8の要件）。最新のJavaScript機能をサポート。
               </p>
             </div>
           </div>
@@ -303,8 +306,8 @@ export default function TechStack() {
         </h2>
         <div className="space-y-3 text-gray-700">
           <p>
-            <strong>Remix:</strong>{' '}
-            Web標準を重視し、優れたパフォーマンスとデベロッパー体験を提供。
+            <strong>React Router:</strong> Remix
+            v2から引き継いだWeb標準重視の設計で、優れたパフォーマンスとデベロッパー体験を提供。
           </p>
           <p>
             <strong>TypeScript:</strong>{' '}

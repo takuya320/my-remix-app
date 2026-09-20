@@ -1,4 +1,4 @@
-import { Outlet } from '@remix-run/react'
+import { Outlet } from 'react-router'
 import Navigation from '~/components/Navigation'
 
 export default function Layout() {
@@ -16,7 +16,7 @@ export default function Layout() {
         <div className="container mx-auto px-4 text-center">
           <p>© 2024 Remix情報ページ</p>
           <p className="text-sm text-gray-400 mt-2">
-            Built with Remix, React, and Tailwind CSS
+            Built with React Router, React, and Tailwind CSS
           </p>
         </div>
       </footer>

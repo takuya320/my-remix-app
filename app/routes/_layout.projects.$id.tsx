@@ -1,6 +1,5 @@
-import type { MetaFunction, LoaderFunctionArgs } from '@remix-run/node'
-import { Link, useLoaderData } from '@remix-run/react'
-import { json } from '@remix-run/node'
+import type { MetaFunction, LoaderFunctionArgs } from 'react-router'
+import { Link, useLoaderData } from 'react-router'
 
 // サンプルプロジェクトデータ（実際のアプリではデータベースから取得）
 const projects = [
@@ -248,17 +247,17 @@ export async function loader({ params }: LoaderFunctionArgs) {
     throw new Response('Not Found', { status: 404 })
   }
 
-  return json({ project })
+  return { project }
 }
 
-export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  if (!data) {
+export const meta: MetaFunction<typeof loader> = ({ loaderData }) => {
+  if (!loaderData) {
     return [{ title: 'プロジェクトが見つかりません' }]
   }
 
   return [
-    { title: `${data.project.name} - Remix情報ページ` },
-    { name: 'description', content: data.project.description },
+    { title: `${loaderData.project.name} - Remix情報ページ` },
+    { name: 'description', content: loaderData.project.description },
   ]
 }
 
