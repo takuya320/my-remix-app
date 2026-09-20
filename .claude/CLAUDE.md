@@ -42,22 +42,18 @@ Never import from `@remix-run/*` — those packages are no longer installed.
 
 ### Comments
 
-Write a comment only for what the code cannot show. The primary test is **"why
-not"**: a comment earns its place when it names an alternative a reader would
-reasonably reach for and the reason it was rejected. A plain "why" comment tends
-to decay into a restatement of the requirement; "why not" records the road not
-taken, which is the one thing that leaves no trace in the code. An external
-constraint with no alternative involved also qualifies.
+Write a comment only for what the code cannot show. The test is **"why not"**:
+a comment earns its place when it names an alternative a reader would
+reasonably reach for and the reason it was rejected. A plain "why" decays into
+a restatement of the requirement; "why not" records the road not taken, which
+is the one thing that leaves no trace in the code. An external constraint with
+no alternative involved also qualifies.
 
 ```tsx
 // Good - names the alternative and why it was not taken
 // Inlined rather than fetched: the content API is not provisioned yet, so the
 // loader returns this array unchanged.
 const blogPosts = [...]
-
-// Bad - restates the symbol below it
-// エラーバウンダリー（記事が見つからない場合）
-export function ErrorBoundary() {}
 
 // Bad - a section label duplicating the heading it sits above
 {/* 6. 適用ケース／どちらを選ぶか */}
@@ -71,29 +67,14 @@ export function ErrorBoundary() {}
   that repeats the symbol name.
 - **Future work is a `TODO`, not prose.** Write `// TODO(#123): …` against an
   issue, or leave it out.
-- **Comments are in English.** Only UI text is Japanese.
 - **Exempt:** `app/entry.client.tsx` and `app/entry.server.tsx` keep the
   comments React Router generates, so both stay diffable against
   `react-router reveal` and upgrade cleanly. Mechanical comments
   (`eslint-disable`, `@ts-expect-error` with a reason) are instructions to a
   tool, not documentation, and are always allowed.
 
-The JSX ban is mechanical, so ESLint owns it rather than review:
-
-```js
-// eslint.config.js
-'no-restricted-syntax': [
-  'error',
-  {
-    selector: 'JSXExpressionContainer > JSXEmptyExpression',
-    message:
-      'No comments inside JSX. A section label duplicates the heading below it.',
-  },
-],
-```
-
-That rule is **not enabled yet** - see Known Issues. Everything else in this
-section is covered by the self-review checklist.
+The JSX ban is mechanical, so it belongs to ESLint rather than to review — see
+Known Issues for the rule and why it is not enabled yet.
 
 ### Component Structure
 
@@ -170,35 +151,31 @@ as done, and before you run `gh pr create`, review your own diff:
    - Does the change stay inside the requested scope? No stray edits, no
      leftover debug code, no commented-out blocks.
    - Are error paths handled, and do loaders/actions fail with a clear message?
-   - Is UI text in Japanese and are code/comments in English?
-   - Does every comment pass the "why not" test, and is there no comment
-     inside JSX? See Comments above.
    - Does anything here belong in a loader/action rather than a component?
+   - Does it hold to Code Style and Comments above?
 2. Then run the review depth that matches the risk of the change (see the table
    below), and resolve every finding — fix it, or state in the PR description
    why it is acceptable.
 
 #### Which review to run
 
-`/code-review <level>` reviews the working-tree diff, a branch, or a PR.
-`--fix` applies findings, `--comment` posts them inline on the PR. **Always
-pass an explicit level**: with no level it silently reuses whatever level was
-typed last, which makes the depth non-deterministic. `low`/`medium` return
-fewer, high-confidence findings; `high`/`xhigh`/`max` cover more ground but
-include uncertain findings that need triage.
-
 | Change                | Review                                               |
 | --------------------- | ---------------------------------------------------- |
 | Docs, CI, config only | The `git diff` re-read above. No agent review needed |
 | Anything under `app/` | `/code-review medium`                                |
 
+Always pass `/code-review` an explicit level: with no level it reuses whatever
+level was typed last. `low`/`medium` return fewer, high-confidence findings;
+`high` and above cover more ground but include uncertain findings that need
+triage. `--fix` applies findings, `--comment` posts them on the PR.
+
 Today every route renders static content from hardcoded arrays in its loader:
 the site has no `action`, no `<Form>`, no session storage and no `process.env`
-usage. Once a change introduces any of those, raise that change to
-`/code-review high` and run `/security-review` alongside it.
+usage. Once a change introduces any of those, raise it to `/code-review high`
+and run `/security-review` alongside it.
 
-Self-review from the context that wrote the code checks the code against its
-own intent, not against the requirement. For anything beyond a docs or config
+Self-review from the context that wrote the code checks it against its own
+intent, not against the requirement. For anything beyond a docs or config
 change, run the review from a fresh session against the branch or PR, so the
 reviewer reads the code instead of remembering why it was written that way.
 
@@ -326,48 +303,6 @@ export default function Post() {
 }
 ```
 
-### Form Handling with Validation
-
-```tsx
-import type { ActionFunctionArgs } from 'react-router'
-import { Form, useActionData, data, redirect } from 'react-router'
-
-export async function action({ request }: ActionFunctionArgs) {
-  const formData = await request.formData()
-  const email = formData.get('email')
-
-  if (!email || typeof email !== 'string') {
-    // data() sets a custom status; a plain object would return 200
-    return data({ error: 'メールアドレスを入力してください' }, { status: 400 })
-  }
-
-  await subscribeUser(email)
-  return redirect('/thanks')
-}
-
-export default function Subscribe() {
-  const actionData = useActionData<typeof action>()
-
-  return (
-    <Form method="post" className="space-y-4">
-      <input
-        type="email"
-        name="email"
-        className="border px-4 py-2 rounded"
-        placeholder="メールアドレス"
-      />
-      {actionData?.error && <p className="text-red-600">{actionData.error}</p>}
-      <button
-        type="submit"
-        className="bg-blue-600 text-white px-6 py-2 rounded"
-      >
-        登録
-      </button>
-    </Form>
-  )
-}
-```
-
 ## Dependencies Management
 
 - **Check before adding**: Evaluate necessity, bundle size, and maintenance status
@@ -443,7 +378,8 @@ the same time.
   --strict-peer-dependencies
 - Footer still reads `© 2024`
 - The `no-restricted-syntax` rule banning JSX comments (see Comments) is not
-  enabled in `eslint.config.js` yet. Turning it on fails CI immediately on 77
+  enabled in `eslint.config.js` yet. The selector is
+  `JSXExpressionContainer > JSXEmptyExpression`. Turning it on fails CI immediately on 77
   existing `{/* … */}` section labels — 35 in `_layout.react-vs-remix.tsx`, 34
   in `_layout.nextjs-vs-remix.tsx`, 8 in `_layout.remix-v3.tsx` — so the rule
   and that cleanup have to land in the same pull request. The counts are

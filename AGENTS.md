@@ -63,7 +63,6 @@ external constraint with no alternative involved also qualifies.
 - No comment that restates the code, including a label above an `export` that
   repeats the symbol name.
 - Future work is `// TODO(#123): …` against an issue, or nothing.
-- Comments are in English. Only UI text is Japanese.
 - Exempt: `app/entry.client.tsx` and `app/entry.server.tsx` keep the comments
   React Router generates, so they stay diffable against `react-router reveal`.
   Mechanical comments (`eslint-disable`, `@ts-expect-error` with a reason) are
