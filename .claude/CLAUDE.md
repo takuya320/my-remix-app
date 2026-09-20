@@ -118,32 +118,25 @@ as done, and before you run `gh pr create`, review your own diff:
 
 #### Which review to run
 
-Two different commands share the name `code-review`, so always write the one
-you mean:
+`/code-review <level>` reviews the working-tree diff, a branch, or a PR.
+`--fix` applies findings, `--comment` posts them inline on the PR. **Always
+pass an explicit level**: with no level it silently reuses whatever level was
+typed last, which makes the depth non-deterministic. `low`/`medium` return
+fewer, high-confidence findings; `high`/`xhigh`/`max` cover more ground but
+include uncertain findings that need triage.
 
-- `/code-review <level>` — the built-in skill. Reviews the working-tree diff,
-  a branch, or a PR. `--fix` applies findings, `--comment` posts them inline on
-  the PR. **Always pass an explicit level**: with no level it silently reuses
-  whatever level was typed last, which makes the depth non-deterministic.
-  `low`/`medium` return fewer, high-confidence findings; `high`/`xhigh`/`max`
-  cover more ground but include uncertain findings that need triage.
-- `/code-review:code-review` — the plugin command. PR only. Runs independent
-  agents that review the PR without the authoring context, scores each finding
-  for confidence, drops anything below 80, and posts a comment on the PR.
-  Slower and more expensive; the independent context is the point.
-
-| Change                                  | Review                                                  |
-| --------------------------------------- | ------------------------------------------------------- |
-| Docs, CI, config only                   | The `git diff` re-read above. No agent review needed    |
-| Presentational components, Tailwind     | `/code-review medium`                                   |
-| `loader` / `action` / form handling     | `/code-review high` + the `silent-failure-hunter` agent |
-| Sessions, env vars, user-supplied input | `/code-review high` + `/security-review`                |
-| A real feature PR, before merge         | `/code-review:code-review`                              |
+| Change                                  | Review                                               |
+| --------------------------------------- | ---------------------------------------------------- |
+| Docs, CI, config only                   | The `git diff` re-read above. No agent review needed |
+| Presentational components, Tailwind     | `/code-review medium`                                |
+| `loader` / `action` / form handling     | `/code-review high`                                  |
+| Sessions, env vars, user-supplied input | `/code-review high` + `/security-review`             |
+| A real feature PR, before merge         | `/code-review xhigh <pr>` targeting the branch       |
 
 Self-review from the context that wrote the code checks the code against its
 own intent, not against the requirement. For anything beyond the first two
-rows, prefer a reviewer with a fresh context — that is what the plugin command
-and the `pr-review-toolkit` agents give you.
+rows, run the review from a fresh session against the branch or PR, so the
+reviewer reads the code instead of remembering why it was written that way.
 
 CI (`.github/workflows/test.yml`) runs Prettier `--check`, ESLint and
 `pnpm typecheck` on every pull request. A green CI is the floor, not the review.
