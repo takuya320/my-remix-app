@@ -19,7 +19,9 @@ export default function TechStack() {
       <div className="mb-12">
         <p className="text-lg text-gray-700 leading-relaxed">
           このサイトで使用している技術スタック、ツール、ライブラリを紹介します。
-          すべてモダンで実績のある技術を採用しています。
+          なお2026年9月時点で、ベースとしているRemix v2はEOL（React Router
+          v8のリリースに伴いセキュリティ更新も終了）となっており、React Router
+          v7/v8への移行が今後の課題です。
         </p>
       </div>
 
@@ -34,7 +36,9 @@ export default function TechStack() {
               </div>
               <div>
                 <h3 className="text-2xl font-semibold text-blue-700">Remix</h3>
-                <p className="text-sm text-gray-600">Version 2 (Vite-based)</p>
+                <p className="text-sm text-gray-600">
+                  Version 2 (Vite-based) / EOL
+                </p>
               </div>
             </div>
             <p className="text-gray-700 mb-3">

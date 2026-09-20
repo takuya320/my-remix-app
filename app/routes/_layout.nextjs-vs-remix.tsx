@@ -174,7 +174,10 @@ export default function NextjsVsRemix() {
                     Routerの2つのルーティングシステム
                   </li>
                   <li>・豊富なエコシステムと大規模なコミュニティ</li>
-                  <li>・エッジランタイム対応（Middleware、Edge Functions）</li>
+                  <li>
+                    ・リクエスト処理のプロキシ層（Next.js 16で middleware.ts は
+                    proxy.ts に置き換え、Node.jsランタイムで動作）
+                  </li>
                   <li>
                     ・大企業での採用実績が豊富（Hulu、Twitch、Nike、Uberなど）
                   </li>
@@ -543,8 +546,8 @@ export default function NextjsVsRemix() {
                     最適化された環境（Edge、Serverless）
                   </li>
                   <li>
-                    <strong>エッジランタイム:</strong> Middleware、Edge API
-                    Routes
+                    <strong>プロキシ層:</strong> proxy.ts（Node.jsランタイム。旧
+                    middleware.ts は非推奨）
                   </li>
                   <li>
                     <strong>Node.jsサーバー:</strong> next
@@ -627,7 +630,10 @@ export default function NextjsVsRemix() {
                   </div>
                   <div>
                     <p className="font-semibold mb-1">開発速度:</p>
-                    <p>高速（Fast Refresh、Turbopack（オプション））</p>
+                    <p>
+                      高速（Fast Refresh、Turbopack（Next.js
+                      16以降はデフォルト））
+                    </p>
                   </div>
                 </div>
               </div>
@@ -694,9 +700,13 @@ export default function NextjsVsRemix() {
                   <li>・remix.config.js（またはvite.config.ts）で設定</li>
                   <li>
                     ・Remix
-                    Stacksテンプレート（Blues、Indie、Grunge等）で素早くスタート
+                    Stacks（Blues、Indie等）はアーカイブ済み。現在はReact
+                    Router公式テンプレートやEpic Stackが推奨
                   </li>
-                  <li>・Shopify製ライブラリとの統合（Hydrogen、Polaris等）</li>
+                  <li>
+                    ・Shopify製ライブラリとの統合（HydrogenはReact Router
+                    7へ移行済み、Polaris等）
+                  </li>
                   <li>
                     ・標準Reactエコシステムとの互換性（React Router、React
                     Query等）
@@ -1344,7 +1354,7 @@ export default function NextjsVsRemix() {
                     <li>・Vercelの強力なバックアップと継続的な開発</li>
                     <li>・React Teamとの密接な協力（Server Components等）</li>
                     <li>・大企業での採用実績多数</li>
-                    <li>・App Routerが将来の標準となる方向性</li>
+                    <li>・App Routerが標準（create-next-appのデフォルト）</li>
                   </ul>
                   <li className="mt-3">
                     <strong>✅ 保守性:</strong>
@@ -1361,23 +1371,36 @@ export default function NextjsVsRemix() {
                 <h4 className="text-lg font-bold mb-3 text-blue-700">Remix</h4>
                 <ul className="text-sm space-y-2 text-gray-700">
                   <li>
-                    <strong>✅ 将来性:</strong>
+                    <strong>⚠️ 将来性:</strong>
                   </li>
                   <ul className="ml-4 space-y-1">
-                    <li>・Shopify買収により企業バックアップ強化</li>
                     <li>
-                      ・React Routerとの統合計画（React Router v7 = Remix）
+                      ・<strong>Remix v2はEOL</strong>（React Router
+                      v8のリリースに伴い2026年6月にセキュリティ更新も終了）
                     </li>
-                    <li>・Web標準ベース設計で長期的な安定性</li>
-                    <li>・エッジコンピューティングのトレンドに適合</li>
+                    <li>
+                      ・Remix v2の機能はReact Router
+                      v7に統合済み。現在はv8が最新
+                    </li>
+                    <li>
+                      ・後継のRemix
+                      3はReactを使わない別物で、v2からの移行パスはない
+                    </li>
+                    <li>・Web標準ベース設計という方向性は各所に継承</li>
                   </ul>
                   <li className="mt-3">
-                    <strong>✅ 保守性:</strong>
+                    <strong>⚠️ 保守性:</strong>
                   </li>
                   <ul className="ml-4 space-y-1">
-                    <li>・シンプルな設計で長期保守が容易</li>
+                    <li>
+                      ・<strong>新規採用は非推奨</strong>。React Router
+                      v7/v8のFramework Modeを選ぶべき
+                    </li>
+                    <li>
+                      ・既存のv2アプリはReact Routerへの移行が必要（future
+                      flagsを有効化済みなら依存の差し替えが中心）
+                    </li>
                     <li>・Web標準依存で外部環境変化の影響小</li>
-                    <li>・オープンソースで透明性高い</li>
                   </ul>
                 </ul>
               </div>
@@ -1523,16 +1546,19 @@ export default function NextjsVsRemix() {
                     本格採用の進展とパフォーマンス改善
                   </li>
                   <li>
-                    ・<strong>Turbopack:</strong>{' '}
-                    Rustベースの高速ビルドツール統合（Webpackから移行）
+                    ・<strong>Turbopack（完了）:</strong> Next.js
+                    16で安定版となり、開発・本番ビルドともデフォルトのバンドラーに。webpackは{' '}
+                    <code>--webpack</code> でのオプトアウト扱い
                   </li>
                   <li>
-                    ・<strong>Partial Prerendering:</strong>{' '}
-                    静的と動的を組み合わせた新レンダリング戦略
+                    ・<strong>Cache Components:</strong> Next.js
+                    16で実験的なPPRフラグは削除され、{' '}
+                    <code>&quot;use cache&quot;</code> を中心としたCache
+                    Componentsに発展
                   </li>
                   <li>
-                    ・<strong>エッジランタイム拡充:</strong> Middleware、Edge
-                    Functionsの機能強化
+                    ・<strong>Node.jsランタイムへの回帰:</strong>{' '}
+                    middleware.tsはproxy.tsに置き換えられ、Node.jsランタイムで動作。エッジ専用実行は縮小方向
                   </li>
                 </ul>
               </div>
@@ -1541,20 +1567,22 @@ export default function NextjsVsRemix() {
                 <h4 className="font-bold mb-2 text-blue-900">Remix</h4>
                 <ul className="text-sm space-y-2 text-gray-700">
                   <li>
-                    ・<strong>React Routerとの統合:</strong> React Router
-                    v7がRemixベースになる計画（エコシステム拡大）
+                    ・<strong>React Routerへの統合（完了）:</strong> Remix
+                    v2の機能はReact Router
+                    v7に統合済み。現在はv8が最新で、以降は年1回のメジャーリリース
                   </li>
                   <li>
-                    ・<strong>Vite統合の深化:</strong> Remix
-                    v2以降、Viteベースの開発体験向上
+                    ・<strong>Remix v2のEOL対応:</strong> React Router
+                    v7/v8のFramework Modeへの移行が必須
+                  </li>
+                  <li>
+                    ・<strong>Remix 3:</strong>{' '}
+                    Reactを使わない独立したフルスタックフレームワークとして2026年10月2日にリリース予定
                   </li>
                   <li>
                     ・<strong>Shopifyエコシステム:</strong>{' '}
-                    Hydrogen（Shopify製フレームワーク）との連携強化
-                  </li>
-                  <li>
-                    ・<strong>Server Components対応:</strong>{' '}
-                    Reactの新機能への対応動向
+                    Hydrogen（Shopify製フレームワーク）はReact Router
+                    7へ移行済み
                   </li>
                   <li>
                     ・<strong>コミュニティ成長:</strong>{' '}
@@ -1569,8 +1597,8 @@ export default function NextjsVsRemix() {
                 </h4>
                 <ul className="text-sm space-y-2 text-gray-700">
                   <li>
-                    ・<strong>エッジコンピューティング:</strong>{' '}
-                    両フレームワークともエッジランタイム対応強化
+                    ・<strong>実行環境の再評価:</strong>{' '}
+                    エッジ専用ランタイムの制約が見直され、Node.js互換ランタイムに回帰する動き
                   </li>
                   <li>
                     ・<strong>React最新機能:</strong> Server
@@ -1741,7 +1769,7 @@ export default function NextjsVsRemix() {
                 以下のキーワードで検索すると、詳細な比較記事や実際の導入事例を見つけることができます：
               </p>
               <ul className="text-sm space-y-2 text-gray-700">
-                <li>・"Next.js vs Remix comparison 2024"</li>
+                <li>・"Next.js vs React Router comparison 2026"</li>
                 <li>・"Remix performance benchmark"</li>
                 <li>・"Next.js App Router vs Remix"</li>
                 <li>・"Migrating from Next.js to Remix"</li>
@@ -1844,7 +1872,7 @@ export default function NextjsVsRemix() {
       {/* Footer */}
       <div className="text-center py-8 border-t border-gray-300">
         <p className="text-gray-600 text-sm">
-          このドキュメントは2024-2025年時点の情報に基づいています。
+          このドキュメントは2026年9月時点の情報に基づいています。
         </p>
         <p className="text-gray-600 text-sm mt-2">
           最新情報は各公式ドキュメントをご確認ください。

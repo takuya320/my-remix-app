@@ -724,16 +724,18 @@ export default function Component() {
                     ルーティング、データフェッチ、フォーム処理が組み込み
                   </li>
                   <li>
-                    <strong>React Router v7:</strong> 将来的にReact
-                    RouterとRemixが統合予定
+                    <strong>React Routerへの統合:</strong> 統合は完了済み。Remix
+                    v2の機能はReact Router v7に取り込まれ、現在はv8が最新（Remix
+                    v2はEOL）
                   </li>
                   <li>
-                    <strong>Remix Stacks:</strong>{' '}
-                    プロジェクトテンプレート（Blues、Indie、Grunge等）
+                    <strong>テンプレート:</strong> Remix
+                    Stacks（Blues、Indie等）はアーカイブ済み。現在はReact
+                    Router公式テンプレートまたはEpic Stackが推奨
                   </li>
                   <li>
-                    <strong>Shopifyエコシステム:</strong>{' '}
-                    Hydrogen、Polarisとの連携
+                    <strong>Shopifyエコシステム:</strong> Hydrogenは React
+                    Router 7 へ移行済み。Polarisとあわせて利用可能
                   </li>
                   <li>
                     <strong>標準React パッケージ互換:</strong> React
@@ -1421,25 +1423,38 @@ export default function Component() {
                 <h4 className="text-lg font-bold mb-3 text-blue-700">Remix</h4>
                 <ul className="text-sm space-y-2 text-gray-700">
                   <li>
-                    <strong>✅ 将来性:</strong>
+                    <strong>⚠️ 将来性:</strong>
                   </li>
                   <ul className="ml-4 space-y-1">
-                    <li>・Shopify買収により企業バックアップ強化</li>
                     <li>
-                      ・React Routerとの統合計画（React Router v7 = Remix）
+                      ・<strong>Remix v2はEOL</strong>
+                      。React Router
+                      v8のリリース（2026年6月）に伴い、セキュリティ更新も終了
                     </li>
-                    <li>・Web標準ベース設計で長期的な安定性</li>
-                    <li>・エッジコンピューティングのトレンドに適合</li>
-                    <li>・モダンWebアプリのベストプラクティスを体現</li>
+                    <li>
+                      ・Remix v2の設計思想はReact
+                      Routerに引き継がれ、現在はv8が最新
+                    </li>
+                    <li>
+                      ・後継のRemix
+                      3はReactを使わない別物のフレームワークで、v2からの移行パスはない
+                    </li>
+                    <li>・Web標準ベース設計という方向性自体は各所に継承</li>
                   </ul>
                   <li className="mt-3">
-                    <strong>✅ 保守性:</strong>
+                    <strong>⚠️ 保守性:</strong>
                   </li>
                   <ul className="ml-4 space-y-1">
-                    <li>・シンプルな設計で長期保守が容易</li>
+                    <li>
+                      ・<strong>新規採用は非推奨</strong>。React Router
+                      v7/v8のFramework Modeを選ぶべき
+                    </li>
+                    <li>
+                      ・既存のv2アプリはReact Routerへの移行が必要（future
+                      flagsを有効化済みなら依存の差し替えが中心）
+                    </li>
                     <li>・Web標準依存で外部環境変化の影響小</li>
-                    <li>・Reactベースなので、React知識が活きる</li>
-                    <li>・オープンソースで透明性高い</li>
+                    <li>・Reactベースなので、React知識は移行後も活きる</li>
                   </ul>
                 </ul>
               </div>
@@ -1590,8 +1605,8 @@ export default function Component() {
                     サーバーコンポーネントの本格普及
                   </li>
                   <li>
-                    ・<strong>React Compiler:</strong> 自動メモ化で最適化（React
-                    Forget）
+                    ・<strong>React Compiler:</strong>{' '}
+                    自動メモ化による最適化。2025年10月に1.0が安定版となり、Next.jsなどでも正式サポート
                   </li>
                   <li>
                     ・<strong>Concurrent Rendering:</strong>{' '}
@@ -1612,19 +1627,21 @@ export default function Component() {
                 <h4 className="font-bold mb-2 text-blue-900">Remix</h4>
                 <ul className="text-sm space-y-2 text-gray-700">
                   <li>
-                    ・<strong>React Routerとの統合:</strong> React Router v7 =
-                    Remix（エコシステム拡大）
+                    ・<strong>React Routerへの統合（完了）:</strong> Remix
+                    v2の機能はReact Router
+                    v7に統合済み。現在はv8が最新で、以降は年1回のメジャーリリース
                   </li>
                   <li>
-                    ・<strong>Vite統合の深化:</strong> 開発体験の更なる向上
+                    ・<strong>Remix v2のEOL対応:</strong> React Router
+                    v7/v8のFramework Modeへの移行が必須
                   </li>
                   <li>
-                    ・<strong>React Server Components対応:</strong>{' '}
-                    RSCへの対応動向
+                    ・<strong>Remix 3:</strong>{' '}
+                    Reactを使わない独立したフルスタックフレームワークとして2026年10月2日にリリース予定。v2からの移行パスはない
                   </li>
                   <li>
-                    ・<strong>Shopifyエコシステム連携:</strong>{' '}
-                    Hydrogen、Polarisとの統合強化
+                    ・<strong>Shopifyエコシステム連携:</strong> HydrogenはReact
+                    Router 7へ移行済み
                   </li>
                   <li>
                     ・<strong>コミュニティ成長:</strong>{' '}
@@ -1887,12 +1904,12 @@ export default function Component() {
                 以下のキーワードで検索すると、詳細な比較記事や実際の導入事例を見つけることができます：
               </p>
               <ul className="text-sm space-y-2 text-gray-700">
-                <li>・"React vs Remix 2024"</li>
+                <li>・"React vs React Router 2026"</li>
                 <li>・"When to use React vs Framework"</li>
                 <li>・"Remix getting started"</li>
                 <li>・"React SPA vs SSR comparison"</li>
-                <li>・"Migrating React SPA to Remix"</li>
-                <li>・"React ecosystem 2024"</li>
+                <li>・"Migrating Remix v2 to React Router"</li>
+                <li>・"React ecosystem 2026"</li>
                 <li>・"Remix performance benefits"</li>
               </ul>
               <p className="text-xs text-gray-600 mt-4">
@@ -1990,7 +2007,7 @@ export default function Component() {
       {/* Footer */}
       <div className="text-center py-8 border-t border-gray-300">
         <p className="text-gray-600 text-sm">
-          このドキュメントは2024-2025年時点の情報に基づいています。
+          このドキュメントは2026年9月時点の情報に基づいています。
         </p>
         <p className="text-gray-600 text-sm mt-2">
           最新情報は各公式ドキュメントをご確認ください。

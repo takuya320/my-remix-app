@@ -28,7 +28,9 @@ export default function Index() {
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Remixの概要</h2>
           <p className="text-lg leading-relaxed text-gray-700">
-            Remixは、モダンで高性能なウェブアプリケーションを構築するための革新的なReactベースのフルスタックフレームワークです。2021年にリリースされ、Web標準技術を活用して優れたユーザー体験とデベロッパー体験を提供します。
+            Remixは、モダンで高性能なウェブアプリケーションを構築するための革新的なフルスタックフレームワークです。2021年にリリースされ、Web標準技術を活用して優れたユーザー体験とデベロッパー体験を提供します。本サイトで解説するのはReactベースのv1/v2系で、v2はReact
+            Routerに統合されました。2026年10月リリース予定のRemix
+            3はReactを使わない別系統のフレームワークです。
           </p>
         </section>
 
