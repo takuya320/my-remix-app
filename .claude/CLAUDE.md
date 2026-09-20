@@ -153,8 +153,9 @@ route file if your editor reports missing types.
 1. Run `pnpm typecheck` - ensure no TypeScript errors
 2. Run `pnpm lint` - format code with Prettier
 3. Run `pnpm exec eslint .` - ESLint is not wired into the npm scripts
-4. Test changes in browser
-5. Write descriptive commit messages (English, conventional commits format)
+4. Run `pnpm test` - Vitest; `pnpm test:watch` while working
+5. Test changes in browser
+6. Write descriptive commit messages (English, conventional commits format)
 
 ### Self-Review (required before finishing a task or opening a PR)
 
@@ -201,8 +202,9 @@ own intent, not against the requirement. For anything beyond a docs or config
 change, run the review from a fresh session against the branch or PR, so the
 reviewer reads the code instead of remembering why it was written that way.
 
-CI (`.github/workflows/test.yml`) runs Prettier `--check`, ESLint and
-`pnpm typecheck` on every pull request. A green CI is the floor, not the review.
+CI (`.github/workflows/test.yml`) runs Prettier `--check`, ESLint,
+`pnpm typecheck`, `pnpm test` and `pnpm build` on every pull request. A green
+CI is the floor, not the review.
 
 ## TypeScript Guidelines
 
@@ -258,9 +260,10 @@ import { User } from '../../../types/user'
 my-remix-app/
 ├── app/
 │   ├── routes/          # Route components
-│   ├── components/      # Reusable components (if needed)
-│   ├── utils/           # Utility functions (if needed)
-│   ├── types/           # Shared TypeScript types (if needed)
+│   ├── components/      # Reusable components
+│   ├── data/            # Content collections (posts, projects)
+│   ├── utils/           # Pure helpers, with colocated *.test.ts
+│   ├── types/           # Shared TypeScript types (*.types.ts)
 │   ├── routes.ts        # Route config (flatRoutes())
 │   ├── root.tsx         # Root layout
 │   ├── entry.client.tsx # Client entry
@@ -374,18 +377,22 @@ export default function Subscribe() {
 
 ## Testing Strategy
 
-Currently no testing setup. When adding tests, prioritize:
+Vitest runs in Node, configured in `vitest.config.ts`. It deliberately leaves
+out the `reactRouter()` plugin, which builds the route graph and expects a dev
+server the tests never start. `pnpm test` runs once, `pnpm test:watch` watches.
 
-1. Loader/action business logic
-2. Form validation
-3. Error boundaries
-4. Critical user flows
+Tests live next to what they cover as `*.test.ts`. `app/routes.ts` passes
+`ignoredRouteFiles: ['**/*.test.*']`, without which `flatRoutes()` registers a
+colocated test as a route and the client build fails on its server-only
+imports.
 
-Consider adding:
+Covered today: the lookups in `app/utils/content.ts`, the `blog.$slug` and
+`projects.$id` loaders including their 404 paths, and the meta functions.
 
-- Vitest for unit tests
-- Playwright or Cypress for E2E tests
-- Testing Library for component tests
+Write tests that take their data as an argument, the way the lookups do, so
+editing a blog post does not break them. Nothing renders a component yet;
+adding Testing Library and a jsdom environment is the next step if component
+behaviour needs covering, and E2E (Playwright) after that.
 
 ## Deployment Notes
 
@@ -429,7 +436,6 @@ the same time.
 
 - No root-level error boundary. `blog.$slug` and `projects.$id` export their
   own `ErrorBoundary`, but `app/root.tsx` does not
-- No testing infrastructure set up
 - ESLint is configured but not integrated into npm scripts; run
   `pnpm exec eslint .` (CI runs it directly)
 - ESLint is on v9. v10 is blocked on eslint-plugin-react (peers up to ^9.7)
