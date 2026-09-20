@@ -369,14 +369,14 @@ the same time.
 
 ## Known Issues / Technical Debt
 
-- No root-level error boundary. `blog.$slug` and `projects.$id` export their
-  own `ErrorBoundary`, but `app/root.tsx` does not
+- Nothing renders a component under test. `app/root.tsx` exports an
+  `ErrorBoundary` that no test exercises, because the Vitest environment is
+  `node` with no Testing Library
 - ESLint is configured but not integrated into npm scripts; run
   `pnpm exec eslint .` (CI runs it directly)
 - ESLint is on v9. v10 is blocked on eslint-plugin-react (peers up to ^9.7)
   and eslint-plugin-jsx-a11y (up to ^9), and CI installs with
   --strict-peer-dependencies
-- Footer still reads `© 2024`
 - The `no-restricted-syntax` rule banning JSX comments (see Comments) is not
   enabled in `eslint.config.js` yet. The selector is
   `JSXExpressionContainer > JSXEmptyExpression`. Turning it on fails CI immediately on 77
