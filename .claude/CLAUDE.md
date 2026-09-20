@@ -1,16 +1,34 @@
 # My Remix App - Project Guidelines
 
+> **Note on the name**: the repository is still called `my-remix-app`, but it no
+> longer runs on Remix. Remix v2 reached End of Life with the React Router v8
+> release, so in September 2026 this project migrated to React Router v8
+> Framework Mode — the direct continuation of Remix v2 by the same team. The
+> site's _content_ is still about Remix; the _stack_ is React Router.
+
 ## Project Overview
 
-This is a Remix application using:
+This is a React Router (Framework Mode) application using:
 
-- **Remix v2** (Vite-based build)
-- **React 18**
+- **React Router v8** (Framework Mode, Vite-based build)
+- **React 19**
 - **TypeScript** (strict mode)
 - **Tailwind CSS** for styling
 - **pnpm** as package manager
-- **Node.js >= 22.0.0**
+- **Node.js >= 22.22.0** (required by React Router v8)
 - **ESLint** for code quality
+
+### Packages
+
+| Purpose                                 | Package                   |
+| --------------------------------------- | ------------------------- |
+| Router, components, hooks, shared types | `react-router`            |
+| Node runtime helpers                    | `@react-router/node`      |
+| Production server (`pnpm start` only)   | `@react-router/serve`     |
+| Vite plugin, CLI, route config types    | `@react-router/dev`       |
+| Flat-file route convention              | `@react-router/fs-routes` |
+
+Never import from `@remix-run/*` — those packages are no longer installed.
 
 ## Project-Specific Conventions
 
@@ -20,14 +38,14 @@ This is a Remix application using:
 - **ESLint config**: TypeScript, React, JSX a11y, and import rules enabled
 - **Language**: UI text is in Japanese, code/comments in English
 - **Import alias**: Use `~/` for app directory imports (e.g., `import { foo } from '~/utils/foo'`)
-- **File organization**: Follow Remix conventions (routes in `app/routes/`, utilities in `app/utils/`)
+- **File organization**: Routes in `app/routes/`, utilities in `app/utils/`
 
 ### Component Structure
 
 ```tsx
 // Preferred pattern for route components
-import type { MetaFunction, LoaderFunctionArgs } from '@remix-run/node'
-import { useLoaderData } from '@remix-run/react'
+import type { MetaFunction, LoaderFunctionArgs } from 'react-router'
+import { useLoaderData } from 'react-router'
 
 export const meta: MetaFunction = () => [
   { title: 'Page Title' },
@@ -54,7 +72,7 @@ export default function ComponentName() {
 
 ### File Naming
 
-- Route files: Use Remix conventions (`_index.tsx`, `about.tsx`, `posts.$id.tsx`)
+- Route files: Flat-file convention, unchanged from Remix v2 (`_index.tsx`, `about.tsx`, `posts.$id.tsx`). Wired up by `flatRoutes()` in `app/routes.ts`
 - Components: PascalCase files (e.g., `UserProfile.tsx`)
 - Utilities: camelCase files (e.g., `formatDate.ts`)
 - Types: Use `.types.ts` suffix for shared types
@@ -67,9 +85,13 @@ export default function ComponentName() {
 pnpm dev          # Start dev server
 pnpm build        # Build for production
 pnpm start        # Run production build
-pnpm typecheck    # Type check without building
+pnpm typecheck    # Generate route types (react-router typegen) + tsc
 pnpm lint         # Format code with Prettier
 ```
+
+`pnpm typecheck` runs `react-router typegen` first, which writes generated route
+types into `.react-router/types/` (gitignored). Run it after adding or renaming a
+route file if your editor reports missing types.
 
 ### Before Committing
 
@@ -96,18 +118,21 @@ import { getUser } from '~/utils/auth'
 import { User } from '../../../types/user'
 ```
 
-## Remix-Specific Best Practices
+## React Router Best Practices
 
 ### Data Loading
 
 - Use `loader` functions for GET requests
 - Use `action` functions for mutations (POST, PUT, DELETE)
+- **Return plain objects** from loaders/actions. `json()` and `defer()` were
+  removed in v8 — single fetch serializes the return value for you
+- Use `data()` from `react-router` only when you need a custom status or headers
 - Always type loader data: `useLoaderData<typeof loader>()`
 - Handle errors with error boundaries
 
 ### Forms
 
-- Use Remix `<Form>` component for progressive enhancement
+- Use the `<Form>` component from `react-router` for progressive enhancement
 - Validate data on server-side in actions
 - Return validation errors from actions
 - Use `useActionData()` to display errors
@@ -115,7 +140,7 @@ import { User } from '../../../types/user'
 ### Performance
 
 - Prefetch on hover for anticipated navigation
-- Use `defer()` for non-critical data
+- Stream non-critical data with `Suspense` + `<Await>` (replaces `defer()`)
 - Optimize images (consider using CDN)
 - Minimize client-side JavaScript
 
@@ -134,15 +159,18 @@ my-remix-app/
 │   ├── components/      # Reusable components (if needed)
 │   ├── utils/           # Utility functions (if needed)
 │   ├── types/           # Shared TypeScript types (if needed)
+│   ├── routes.ts        # Route config (flatRoutes())
 │   ├── root.tsx         # Root layout
 │   ├── entry.client.tsx # Client entry
 │   ├── entry.server.tsx # Server entry
 │   └── tailwind.css     # Tailwind imports
 ├── public/              # Static assets
 ├── .claude/             # Claude Code configuration
+├── .react-router/       # Generated route types (gitignored)
 ├── package.json
 ├── tsconfig.json
 ├── vite.config.ts
+├── react-router.config.ts
 ├── tailwind.config.ts
 └── .npmrc               # pnpm configuration
 ```
@@ -165,20 +193,20 @@ When adding features, follow this order:
 
 ```tsx
 // app/routes/posts.$id.tsx
-import type { LoaderFunctionArgs, MetaFunction } from '@remix-run/node'
-import { useLoaderData } from '@remix-run/react'
-import { json } from '@remix-run/node'
+import type { LoaderFunctionArgs, MetaFunction } from 'react-router'
+import { useLoaderData } from 'react-router'
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const post = await getPost(params.id)
   if (!post) {
     throw new Response('Not Found', { status: 404 })
   }
-  return json({ post })
+  return { post }
 }
 
-export const meta: MetaFunction<typeof loader> = ({ data }) => [
-  { title: data?.post.title },
+// v8 renamed the meta argument from `data` to `loaderData`
+export const meta: MetaFunction<typeof loader> = ({ loaderData }) => [
+  { title: loaderData?.post.title },
 ]
 
 export default function Post() {
@@ -195,16 +223,16 @@ export default function Post() {
 ### Form Handling with Validation
 
 ```tsx
-import type { ActionFunctionArgs } from '@remix-run/node'
-import { Form, useActionData } from '@remix-run/react'
-import { json, redirect } from '@remix-run/node'
+import type { ActionFunctionArgs } from 'react-router'
+import { Form, useActionData, data, redirect } from 'react-router'
 
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData()
   const email = formData.get('email')
 
   if (!email || typeof email !== 'string') {
-    return json({ error: 'メールアドレスを入力してください' }, { status: 400 })
+    // data() sets a custom status; a plain object would return 200
+    return data({ error: 'メールアドレスを入力してください' }, { status: 400 })
   }
 
   await subscribeUser(email)
@@ -262,8 +290,14 @@ Consider adding:
 
 This project is configured for Vercel deployment. Configuration files:
 
-- `vercel.json`: Build and framework configuration
+- `vercel.json`: Build and framework configuration (`"framework": "react-router"`)
 - `.vercelignore`: Files to exclude from deployment
+
+The optional `@vercel/react-router` preset is **deliberately not installed**. It
+relocates the server bundle to `build/server/nodejs_<hash>/index.js`, which
+breaks `pnpm start`. Zero-config deployment works without it; add it only if you
+need per-route function config or bundle splitting, and fix the `start` script at
+the same time.
 
 **Deployment Steps:**
 
@@ -279,20 +313,22 @@ This project is configured for Vercel deployment. Configuration files:
 - Build command: `pnpm build`
 - Output directory: `build/client`
 - Install command: `pnpm install`
-- Node.js version: >= 22.0.0 (automatically detected from `engines` field)
+- Node.js version: >= 22.22.0 (automatically detected from `engines` field)
 
 ### General Deployment Info
 
 - Build output: `build/client` and `build/server`
 - Environment variables: Use `.env` file locally (not committed), configure in hosting platform
 - Other hosting options: Fly.io, Railway, AWS, etc.
-- Ensure Node.js version matches `engines` field (>= 22.0.0)
+- Ensure Node.js version matches `engines` field (>= 22.22.0)
 
 ## Known Issues / Technical Debt
 
 - No error boundaries implemented yet
 - No testing infrastructure set up
 - ESLint is configured but not integrated into npm scripts
+- Tailwind CSS is still on v3 (v4 is current); ESLint is on v8 (v10 is current)
+- Footer still reads `© 2024`
 
 ## Questions to Ask When Uncertain
 
@@ -304,7 +340,8 @@ This project is configured for Vercel deployment. Configuration files:
 
 ## Resources
 
-- [Remix Documentation](https://remix.run/docs)
+- [React Router Documentation](https://reactrouter.com)
+- [Upgrading from Remix](https://reactrouter.com/upgrading/remix)
 - [React Documentation](https://react.dev)
 - [Tailwind CSS](https://tailwindcss.com)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
