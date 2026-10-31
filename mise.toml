@@ -1,0 +1,9 @@
+# Node comes from .node-version rather than a `[tools] node` entry here, so CI,
+# nodenv and mise share one source of truth.
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+
+# Node 26 no longer bundles corepack, so nothing else supplies the pnpm that
+# `packageManager` in package.json requires. Keep this equal to that field.
+[tools]
+pnpm = "10.19.0"
