@@ -153,7 +153,6 @@ my-remix-app/
 ├── vite.config.ts
 ├── react-router.config.ts
 ├── eslint.config.js     # ESLint flat config
-├── postcss.config.js    # @tailwindcss/postcss
 └── .npmrc               # pnpm configuration
 ```
 
@@ -286,9 +285,14 @@ the same time.
 
 - ESLint is configured but not integrated into npm scripts; run
   `pnpm exec eslint .` (CI runs it directly)
-- ESLint is on v9. v10 is blocked on eslint-plugin-react (peers up to ^9.7)
-  and eslint-plugin-jsx-a11y (up to ^9), and CI installs with
-  --strict-peer-dependencies
+- ESLint is on v9. v10 is blocked on eslint-plugin-react (peers up to ^9.7),
+  eslint-plugin-jsx-a11y and eslint-plugin-import (both up to ^9), and CI
+  installs with --strict-peer-dependencies
+- TypeScript is on 6.0. 7 is blocked on typescript-eslint, which declares
+  `typescript <6.1.0`
+- Tailwind runs through `@tailwindcss/vite`, not `@tailwindcss/postcss`: under
+  Vite 8 the PostCSS plugin fails the SSR build with
+  `ENOENT ... open '/tailwindcss'`
 
 ## Questions to Ask When Uncertain
 
