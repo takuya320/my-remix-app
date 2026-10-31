@@ -1,0 +1,4 @@
+# Reads the Node version from .node-version instead of a `[tools] node = ...`
+# entry here, so CI, nodenv and mise keep a single source of truth.
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
