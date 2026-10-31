@@ -68,7 +68,6 @@ my-remix-app/
 ├── vite.config.ts
 ├── react-router.config.ts
 ├── eslint.config.js     # ESLint flat config
-├── postcss.config.js
 └── vercel.json          # Vercel deployment config
 ```
 
